@@ -21,6 +21,7 @@ class MissedMeetingMail extends Mailable
     public function __construct()
     {
         $quotes = collect([
+            "I’m going to pick up chicks by telling them I can’t read.",
             "I love her five ever... because forever just isn't enough!",
             "Bro, the best part about being drunk is there's two of her.",
             "I can't let my gf get in the way of finding my wife.",
