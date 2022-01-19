@@ -122,6 +122,11 @@ export default {
                 .then((response) => {
                     // Clear the row
                     this.meetings.splice(index, 1);
+
+                    this.$moshaToast('Missed meeting removed!', {
+                        position: 'bottom-right',
+                        type: 'danger',
+                    });
                 })
                 .catch((error) => {
                     console.log(error.response);

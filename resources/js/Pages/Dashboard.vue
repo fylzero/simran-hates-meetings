@@ -201,6 +201,11 @@ export default {
                     this.missed.thisWeek++;
                     this.missed.thisMonth++;
                     this.missed.daysSince = 0;
+
+                    this.$moshaToast('Simran has been notified!', {
+                        position: 'bottom-right',
+                        type: 'success',
+                    });
                 })
                 .catch((error) => {
                     console.log(error.response);
