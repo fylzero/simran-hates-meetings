@@ -45,7 +45,7 @@ class MissedMeetingController extends Controller
         }
 
         // Only the meeting owner can delete a meeting
-        if ($missedMeeting->user()->id !== auth()->user()->id) {
+        if ($missedMeeting->user->id !== auth()->user()->id) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'You are not authorized to delete this meeting',
