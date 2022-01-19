@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["plugin:vue/essential", "airbnb-base"],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["vue"],
+    "rules": {
+        "array-callback-return": "off",
+        "eqeqeq": "off",
+        "func-names": "off",
+        "global-require": "off",
+        "guard-for-in": "off",
+        "import/extensions": "off",
+        "import/no-dynamic-require": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "max-len": ["off", { "code": 120 }],
+        "no-console": "warn",
+        "no-continue": "off",
+        "no-debugger": "warn",
+        "no-empty": "off",
+        "no-multi-assign": "off",
+        "no-new": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
+        "no-restricted-globals": "off",
+        "no-restricted-syntax": "off",
+        "no-undef": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-expressions": "off",
+        "no-unused-vars": "off",
+        "no-useless-escape": "off",
+        "no-var": "off",
+        "one-var": "off",
+        "operator-linebreak": "off",
+        "prefer-const": "off",
+        "prefer-rest-params": "off",
+        "prefer-template": "off",
+        "radix": "off",
+        "vars-on-top": "off"
+    }
+}
