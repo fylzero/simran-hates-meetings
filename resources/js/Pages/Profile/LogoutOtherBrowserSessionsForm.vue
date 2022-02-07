@@ -22,7 +22,7 @@
                             stroke-width="2"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
-                            class="w-8 h-8 text-gray-500"
+                            class="h-8 w-8 text-gray-500"
                             v-if="session.agent.is_desktop"
                         >
                             <path
@@ -38,7 +38,7 @@
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="w-8 h-8 text-gray-500"
+                            class="h-8 w-8 text-gray-500"
                             v-else
                         >
                             <path d="M0 0h24v24H0z" stroke="none"></path>
@@ -56,7 +56,7 @@
                             <div class="text-xs text-gray-500">
                                 {{ session.ip_address }},
 
-                                <span class="text-green-500 font-semibold" v-if="session.is_current_device"
+                                <span class="font-semibold text-green-500" v-if="session.is_current_device"
                                     >This device</span
                                 >
                                 <span v-else>Last active {{ session.last_active }}</span>
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center mt-5">
+            <div class="mt-5 flex items-center">
                 <jet-button @click.native="confirmLogout"> Logout Other Browser Sessions </jet-button>
 
                 <jet-action-message :on="form.recentlySuccessful" class="ml-3"> Done. </jet-action-message>

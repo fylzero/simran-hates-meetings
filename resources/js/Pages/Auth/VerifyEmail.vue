@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Verify Email</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Verify Email</h2>
         </template>
 
         <div>
@@ -11,7 +11,7 @@
                     the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
                 </div>
 
-                <div class="mb-4 font-medium text-sm text-green-600" v-if="verificationLinkSent">
+                <div class="mb-4 text-sm font-medium text-green-600" v-if="verificationLinkSent">
                     A new verification link has been sent to the email address you provided during registration.
                 </div>
 
@@ -25,7 +25,7 @@
                             :href="route('logout')"
                             method="post"
                             as="button"
-                            class="underline text-sm text-gray-600 hover:text-gray-900"
+                            class="text-sm text-gray-600 underline hover:text-gray-900"
                             >Logout</inertia-link
                         >
                     </div>

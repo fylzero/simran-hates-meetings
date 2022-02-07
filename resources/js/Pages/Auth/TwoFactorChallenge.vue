@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Two Factor Challenge</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Two Factor Challenge</h2>
         </template>
 
         <div>
@@ -46,10 +46,10 @@
                         />
                     </div>
 
-                    <div class="flex items-center justify-end mt-4">
+                    <div class="mt-4 flex items-center justify-end">
                         <button
                             type="button"
-                            class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
+                            class="cursor-pointer text-sm text-gray-600 underline hover:text-gray-900"
                             @click.prevent="toggleRecovery"
                         >
                             <template v-if="!recovery"> Use a recovery code </template>

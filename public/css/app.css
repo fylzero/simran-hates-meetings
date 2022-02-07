@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.15 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.18 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -1014,9 +1014,6 @@ select {
 .mt-1 {
   margin-top: 0.25rem;
 }
-.ml-2 {
-  margin-left: 0.5rem;
-}
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -1034,6 +1031,9 @@ select {
 }
 .ml-1 {
   margin-left: 0.25rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
 }
 .-mr-0\.5 {
   margin-right: -0.125rem;
@@ -1257,6 +1257,9 @@ select {
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-row {
+  flex-direction: row;
 }
 .flex-col {
   flex-direction: column;

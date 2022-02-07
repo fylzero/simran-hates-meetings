@@ -27,7 +27,7 @@
                         </p>
                     </div>
 
-                    <div class="mt-4 dark:p-4 dark:w-56 dark:bg-white" v-html="qrCode"></div>
+                    <div class="mt-4 dark:w-56 dark:bg-white dark:p-4" v-html="qrCode"></div>
                 </div>
 
                 <div v-if="recoveryCodes.length > 0">
@@ -38,7 +38,7 @@
                         </p>
                     </div>
 
-                    <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
+                    <div class="mt-4 grid max-w-xl gap-1 rounded-lg bg-gray-100 px-4 py-4 font-mono text-sm">
                         <div v-for="code in recoveryCodes" :key="code">
                             {{ code }}
                         </div>

@@ -1,11 +1,11 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 v-if="$page.props.user" class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
-            <h2 v-else class="font-semibold text-xl text-gray-800 leading-tight">Welcome</h2>
+            <h2 v-if="$page.props.user" class="text-xl font-semibold leading-tight text-gray-800">Dashboard</h2>
+            <h2 v-else class="text-xl font-semibold leading-tight text-gray-800">Welcome</h2>
         </template>
 
-        <div class="max-w-3xl mt-12 mx-auto sm:px-6 lg:px-8">
+        <div class="mx-auto mt-12 max-w-3xl sm:px-6 lg:px-8">
             <card>
                 <div class="my-5 flex justify-center">
                     <div>
@@ -20,7 +20,7 @@
                         <!-- This div just keeps flex from messing with the content layout -->
                         <div class="text-center">
                             It has been
-                            <span class="text-red-600 block" style="font-size: 6rem; line-height: 6rem">
+                            <span class="block text-red-600" style="font-size: 6rem; line-height: 6rem">
                                 {{ missed.daysSince }}
                             </span>
                             day{{ missed.daysSince > 1 || missed.daysSince == 0 ? 's' : '' }}
@@ -68,26 +68,7 @@
                 <!-- Simran's Reverse-Shame Form -->
                 <div v-if="$page.props.user.is_simran">
                     <button
-                        class="
-                            mt-3
-                            leading-snug
-                            font-sans
-                            inline-flex
-                            items-center
-                            px-4
-                            py-2
-                            bg-green-600
-                            border border-transparent
-                            rounded-md
-                            text-lg text-white
-                            tracking-widest
-                            hover:bg-green-700
-                            active:bg-green-900
-                            focus:outline-none focus:border-green-900 focus:shadow-outline-green
-                            transition
-                            ease-in-out
-                            duration-150
-                        "
+                        class="focus:shadow-outline-green mt-3 inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 font-sans text-lg leading-snug tracking-widest text-white transition duration-150 ease-in-out hover:bg-green-700 focus:border-green-900 focus:outline-none active:bg-green-900"
                     >
                         (Coming soon)
                         <br />
@@ -103,29 +84,11 @@
                     @click="logMissedMeeting"
                     :class="{ 'cursor-not-allowed': logButtonLoading }"
                     :disabled="logButtonLoading"
-                    class="
-                        leading-snug
-                        font-sans
-                        inline-flex
-                        items-center
-                        px-4
-                        py-2
-                        bg-green-600
-                        border border-transparent
-                        rounded-md
-                        text-lg text-white
-                        tracking-widest
-                        hover:bg-green-700
-                        active:bg-green-900
-                        focus:outline-none focus:border-green-900 focus:shadow-outline-green
-                        transition
-                        ease-in-out
-                        duration-150
-                    "
+                    class="focus:shadow-outline-green inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 font-sans text-lg leading-snug tracking-widest text-white transition duration-150 ease-in-out hover:bg-green-700 focus:border-green-900 focus:outline-none active:bg-green-900"
                 >
                     <svg
                         v-if="logButtonLoading"
-                        class="mr-6 animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        class="mr-6 -ml-1 mr-3 h-5 w-5 animate-spin text-white"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -153,7 +116,7 @@
             <div class="my-12">
                 <img
                     src="/img/meeting.gif"
-                    class="rounded-lg mx-auto"
+                    class="mx-auto rounded-lg"
                     alt="Sarcastic I have a meeting image from The New Girl"
                 />
             </div>

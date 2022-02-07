@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Reset Password</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Reset Password</h2>
         </template>
 
         <div>
@@ -45,7 +45,7 @@
                         />
                     </div>
 
-                    <div class="flex items-center justify-end mt-4">
+                    <div class="mt-4 flex items-center justify-end">
                         <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Reset Password
                         </jet-button>

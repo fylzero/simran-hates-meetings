@@ -2,15 +2,7 @@
     <select
         @change="selectTimezone($event)"
         name="timezone"
-        class="
-            border-gray-300
-            focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
-            rounded-md
-            shadow-sm
-            mt-1
-            block
-            w-full
-        "
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         required
     >
         <option v-for="timezone in timezones" :key="timezone" :value="timezone" :selected="timezone == tzGuess">

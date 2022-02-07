@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Confirm Password</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Confirm Password</h2>
         </template>
 
         <div>
@@ -26,7 +26,7 @@
                         />
                     </div>
 
-                    <div class="flex justify-end mt-4">
+                    <div class="mt-4 flex justify-end">
                         <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Confirm
                         </jet-button>

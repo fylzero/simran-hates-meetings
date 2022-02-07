@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Register</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Register</h2>
         </template>
 
         <div>
@@ -67,14 +67,14 @@
                                     <a
                                         target="_blank"
                                         :href="route('terms.show')"
-                                        class="underline text-sm text-gray-600 hover:text-gray-900"
+                                        class="text-sm text-gray-600 underline hover:text-gray-900"
                                         >Terms of Service</a
                                     >
                                     and
                                     <a
                                         target="_blank"
                                         :href="route('policy.show')"
-                                        class="underline text-sm text-gray-600 hover:text-gray-900"
+                                        class="text-sm text-gray-600 underline hover:text-gray-900"
                                         >Privacy Policy</a
                                     >
                                 </div>
@@ -82,10 +82,10 @@
                         </jet-label>
                     </div>
 
-                    <div class="flex items-center justify-end mt-8">
+                    <div class="mt-8 flex items-center justify-end">
                         <inertia-link
                             :href="route('login')"
-                            class="underline text-sm text-gray-600 hover:text-gray-900"
+                            class="text-sm text-gray-600 underline hover:text-gray-900"
                         >
                             Already registered?
                         </inertia-link>
