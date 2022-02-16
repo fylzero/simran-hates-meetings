@@ -34,9 +34,7 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewHorizon', function ($user) {
-            return in_array($user->email, [
-                'ptheobald@neoncrm.com',
-            ]);
+            return in_array($user->email, [config('horizon.allowed_user_email')]);
         });
     }
 }

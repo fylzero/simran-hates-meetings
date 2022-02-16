@@ -4,6 +4,8 @@ use Illuminate\Support\Str;
 
 return [
 
+    'allowed_user_email' => env('ALLOWED_HORIZON_USER_EMAIL'),
+
     /*
     |--------------------------------------------------------------------------
     | Horizon Domain
