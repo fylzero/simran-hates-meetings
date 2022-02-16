@@ -2,6 +2,10 @@
     <app-layout>
         <Head title="Log in" />
 
+        <template #header>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Login</h2>
+        </template>
+
         <jet-authentication-card>
             <jet-validation-errors class="mb-4" />
 
