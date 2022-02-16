@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <app-layout title="Shame Log">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">Shame Log</h2>
         </template>

@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <app-layout title="Dashboard">
         <template #header>
             <h2 v-if="$page.props.user" class="text-xl font-semibold leading-tight text-gray-800">Dashboard</h2>
             <h2 v-else class="text-xl font-semibold leading-tight text-gray-800">Welcome</h2>
@@ -125,60 +125,61 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout';
-import Card from '@/Components/Card';
+    import { defineComponent } from 'vue'
+    import AppLayout from '@/Layouts/AppLayout.vue'
+    import Card from '@/Components/Card.vue'
 
-export default {
-    components: {
-        AppLayout,
-        Card,
-    },
-    props: [
-        'missedMeetingsAll',
-        'missedMeetingsToday',
-        'missedMeetingsThisWeek',
-        'missedMeetingsThisMonth',
-        'missedMeetingsDaysSince',
-    ],
-    data() {
-        return {
-            animationDuration: 500,
-            logButtonLoading: false,
-            missed: {
-                all: this.missedMeetingsAll,
-                today: this.missedMeetingsToday,
-                thisWeek: this.missedMeetingsThisWeek,
-                thisMonth: this.missedMeetingsThisMonth,
-                daysSince: this.missedMeetingsDaysSince,
-            },
-        };
-    },
-    methods: {
-        logMissedMeeting() {
-            this.logButtonLoading = true;
-            axios
-                .post('/missed-meeting/')
-                .then((response) => {
-                    this.missed.all++;
-                    this.missed.today++;
-                    this.missed.thisWeek++;
-                    this.missed.thisMonth++;
-                    this.missed.daysSince = 0;
-
-                    this.$moshaToast('Simran has been notified!', {
-                        position: 'bottom-right',
-                        type: 'success',
-                    });
-                })
-                .catch((error) => {
-                    console.log(error.response);
-                })
-                .finally(() => {
-                    this.logButtonLoading = false;
-                });
+    export default defineComponent({
+        components: {
+            AppLayout,
+            Card,
         },
-    },
-};
+        props: [
+            'missedMeetingsAll',
+            'missedMeetingsToday',
+            'missedMeetingsThisWeek',
+            'missedMeetingsThisMonth',
+            'missedMeetingsDaysSince',
+        ],
+        data() {
+            return {
+                animationDuration: 500,
+                logButtonLoading: false,
+                missed: {
+                    all: this.missedMeetingsAll,
+                    today: this.missedMeetingsToday,
+                    thisWeek: this.missedMeetingsThisWeek,
+                    thisMonth: this.missedMeetingsThisMonth,
+                    daysSince: this.missedMeetingsDaysSince,
+                },
+            };
+        },
+        methods: {
+            logMissedMeeting() {
+                this.logButtonLoading = true;
+                axios
+                    .post('/missed-meeting/')
+                    .then((response) => {
+                        this.missed.all++;
+                        this.missed.today++;
+                        this.missed.thisWeek++;
+                        this.missed.thisMonth++;
+                        this.missed.daysSince = 0;
+
+                        this.$moshaToast('Simran has been notified!', {
+                            position: 'bottom-right',
+                            type: 'success',
+                        });
+                    })
+                    .catch((error) => {
+                        console.log(error.response);
+                    })
+                    .finally(() => {
+                        this.logButtonLoading = false;
+                    });
+            },
+        },
+    })
 </script>
 
 <style scoped>

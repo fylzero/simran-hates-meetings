@@ -1,5 +1,7 @@
 <template>
     <div>
+        <Head :title="title" />
+
         <jet-banner />
 
         <div class="min-h-screen">
@@ -22,13 +24,20 @@
 </template>
 
 <script>
-import NavPrimary from '@/Layouts/NavPrimary';
-import JetBanner from '@/Jetstream/Banner';
+import { defineComponent } from 'vue';
+import NavPrimary from '@/Layouts/NavPrimary.vue';
+import JetBanner from '@/Jetstream/Banner.vue';
+import { Head } from '@inertiajs/inertia-vue3';
 
-export default {
+export default defineComponent({
+    props: {
+        title: String,
+    },
+
     components: {
+        Head,
         NavPrimary,
         JetBanner,
     },
-};
+});
 </script>

@@ -7,7 +7,9 @@
 </template>
 
 <script>
-export default {
-    props: ['message'],
-};
+    import { defineComponent } from 'vue'
+
+    export default defineComponent({
+        props: ['message']
+    })
 </script>

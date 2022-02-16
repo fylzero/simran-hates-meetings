@@ -1,58 +1,46 @@
 <template>
-    <app-layout>
-        <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">Forgot Password</h2>
-        </template>
+    <Head title="Forgot Password" />
 
-        <div>
-            <jet-authentication-card>
-                <div class="mb-4 text-sm text-gray-600">
-                    Forgot your password? No problem. Just let us know your email address and we will email you a
-                    password reset link that will allow you to choose a new one.
-                </div>
-
-                <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
-                    {{ status }}
-                </div>
-
-                <jet-validation-errors class="mb-4" />
-
-                <form @submit.prevent="submit">
-                    <div>
-                        <jet-label for="email" value="Email" />
-                        <jet-input
-                            id="email"
-                            type="email"
-                            class="mt-1 block w-full"
-                            v-model="form.email"
-                            required
-                            autofocus
-                        />
-                    </div>
-
-                    <div class="mt-4 flex items-center justify-end">
-                        <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                            Email Password Reset Link
-                        </jet-button>
-                    </div>
-                </form>
-            </jet-authentication-card>
+    <jet-authentication-card>
+        <div class="mb-4 text-sm text-gray-600">
+            Forgot your password? No problem. Just let us know your email address and we will email you a password reset
+            link that will allow you to choose a new one.
         </div>
-    </app-layout>
+
+        <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
+            {{ status }}
+        </div>
+
+        <jet-validation-errors class="mb-4" />
+
+        <form @submit.prevent="submit">
+            <div>
+                <jet-label for="email" value="Email" />
+                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+            </div>
+
+            <div class="mt-4 flex items-center justify-end">
+                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Email Password Reset Link
+                </jet-button>
+            </div>
+        </form>
+    </jet-authentication-card>
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout';
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard';
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo';
-import JetButton from '@/Jetstream/Button';
-import JetInput from '@/Jetstream/Input';
-import JetLabel from '@/Jetstream/Label';
-import JetValidationErrors from '@/Jetstream/ValidationErrors';
+import { defineComponent } from 'vue';
+import { Head } from '@inertiajs/inertia-vue3';
+import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue';
+import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue';
+import JetButton from '@/Jetstream/Button.vue';
+import JetInput from '@/Jetstream/Input.vue';
+import JetLabel from '@/Jetstream/Label.vue';
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
 
-export default {
+export default defineComponent({
     components: {
-        AppLayout,
+        Head,
         JetAuthenticationCard,
         JetAuthenticationCardLogo,
         JetButton,
@@ -78,5 +66,5 @@ export default {
             this.form.post(this.route('password.email'));
         },
     },
-};
+});
 </script>

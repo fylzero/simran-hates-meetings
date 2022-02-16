@@ -6,10 +6,10 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="flex shrink-0 items-center">
-                        <inertia-link :href="route('dashboard')" class="text-xl">
+                        <Link :href="route('dashboard')" class="text-xl">
                             Simran Hates Meetings
                             <span class="font-sans">¯\_(ツ)_/¯</span>
-                        </inertia-link>
+                        </Link>
                     </div>
 
                     <!-- Navigation Links -->
@@ -55,13 +55,13 @@
                         </button>
 
                         <span v-else class="inline-flex rounded-md" v-tooltip.bottom="'Profile & Settings'">
-                            <inertia-link
+                            <Link
                                 :href="route('profile.show')"
                                 :active="route().current('profile.show')"
                                 class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-base font-medium leading-4 text-gray-600 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
                             >
                                 {{ $page.props.user.name }}
-                            </inertia-link>
+                            </Link>
                         </span>
                     </template>
 
@@ -180,6 +180,7 @@
 </template>
 
 <script>
+import { Link } from '@inertiajs/inertia-vue3';
 import JetApplicationMark from '@/Jetstream/ApplicationMark';
 import JetDropdown from '@/Jetstream/Dropdown';
 import JetDropdownLink from '@/Jetstream/DropdownLink';
@@ -187,6 +188,7 @@ import JetNavLink from '@/Jetstream/NavLink';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink';
 export default {
     components: {
+        Link,
         JetApplicationMark,
         JetDropdown,
         JetDropdownLink,
