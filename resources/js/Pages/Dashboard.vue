@@ -20,7 +20,11 @@
                         <!-- This div just keeps flex from messing with the content layout -->
                         <div class="text-center">
                             It has been
-                            <span class="block text-red-600" style="font-size: 6rem; line-height: 6rem">
+                            <span
+                                data-cy="days-since-incident"
+                                class="block text-red-600"
+                                style="font-size: 6rem; line-height: 6rem"
+                            >
                                 {{ missed.daysSince }}
                             </span>
                             day{{ missed.daysSince > 1 || missed.daysSince == 0 ? 's' : '' }}
@@ -39,25 +43,25 @@
                 <div class="flex pt-6 pb-3">
                     <div class="flex-grow text-center">
                         Total
-                        <h1 class="text-4xl">
+                        <h1 data-cy="total-incidents" class="text-4xl">
                             {{ missed.all }}
                         </h1>
                     </div>
                     <div class="flex-grow text-center">
                         Today
-                        <h1 class="text-4xl">
+                        <h1 data-cy="todays-incidents" class="text-4xl">
                             {{ missed.today }}
                         </h1>
                     </div>
                     <div class="flex-grow text-center">
                         This Week
-                        <h1 class="text-4xl">
+                        <h1 data-cy="this-weeks-incidents" class="text-4xl">
                             {{ missed.thisWeek }}
                         </h1>
                     </div>
                     <div class="flex-grow text-center">
                         This Month
-                        <h1 class="text-4xl">
+                        <h1 data-cy="this-months-incidents" class="text-4xl">
                             {{ missed.thisMonth }}
                         </h1>
                     </div>
@@ -80,6 +84,7 @@
 
                 <!-- Log Missed Meeting Button -->
                 <button
+                    data-cy="log-missed-meeting"
                     v-else
                     @click="logMissedMeeting"
                     :class="{ 'cursor-not-allowed': logButtonLoading }"
@@ -125,61 +130,61 @@
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import AppLayout from '@/Layouts/AppLayout.vue'
-    import Card from '@/Components/Card.vue'
+import { defineComponent } from 'vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
+import Card from '@/Components/Card.vue';
 
-    export default defineComponent({
-        components: {
-            AppLayout,
-            Card,
-        },
-        props: [
-            'missedMeetingsAll',
-            'missedMeetingsToday',
-            'missedMeetingsThisWeek',
-            'missedMeetingsThisMonth',
-            'missedMeetingsDaysSince',
-        ],
-        data() {
-            return {
-                animationDuration: 500,
-                logButtonLoading: false,
-                missed: {
-                    all: this.missedMeetingsAll,
-                    today: this.missedMeetingsToday,
-                    thisWeek: this.missedMeetingsThisWeek,
-                    thisMonth: this.missedMeetingsThisMonth,
-                    daysSince: this.missedMeetingsDaysSince,
-                },
-            };
-        },
-        methods: {
-            logMissedMeeting() {
-                this.logButtonLoading = true;
-                axios
-                    .post('/missed-meeting/')
-                    .then((response) => {
-                        this.missed.all++;
-                        this.missed.today++;
-                        this.missed.thisWeek++;
-                        this.missed.thisMonth++;
-                        this.missed.daysSince = 0;
-
-                        this.$moshaToast('Simran has been notified!', {
-                            position: 'bottom-right',
-                            type: 'success',
-                        });
-                    })
-                    .catch((error) => {
-                        console.log(error.response);
-                    })
-                    .finally(() => {
-                        this.logButtonLoading = false;
-                    });
+export default defineComponent({
+    components: {
+        AppLayout,
+        Card,
+    },
+    props: [
+        'missedMeetingsAll',
+        'missedMeetingsToday',
+        'missedMeetingsThisWeek',
+        'missedMeetingsThisMonth',
+        'missedMeetingsDaysSince',
+    ],
+    data() {
+        return {
+            animationDuration: 500,
+            logButtonLoading: false,
+            missed: {
+                all: this.missedMeetingsAll,
+                today: this.missedMeetingsToday,
+                thisWeek: this.missedMeetingsThisWeek,
+                thisMonth: this.missedMeetingsThisMonth,
+                daysSince: this.missedMeetingsDaysSince,
             },
+        };
+    },
+    methods: {
+        logMissedMeeting() {
+            this.logButtonLoading = true;
+            axios
+                .post('/missed-meeting/')
+                .then((response) => {
+                    this.missed.all++;
+                    this.missed.today++;
+                    this.missed.thisWeek++;
+                    this.missed.thisMonth++;
+                    this.missed.daysSince = 0;
+
+                    this.$moshaToast('Simran has been notified!', {
+                        position: 'bottom-right',
+                        type: 'success',
+                    });
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                })
+                .finally(() => {
+                    this.logButtonLoading = false;
+                });
         },
-    })
+    },
+});
 </script>
 
 <style scoped>

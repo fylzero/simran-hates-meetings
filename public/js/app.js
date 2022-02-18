@@ -26848,6 +26848,7 @@ var _hoisted_7 = {
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" It has been ");
 
 var _hoisted_9 = {
+  "data-cy": "days-since-incident",
   "class": "block text-red-600",
   style: {
     "font-size": "6rem",
@@ -26879,6 +26880,7 @@ var _hoisted_12 = {
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Total ");
 
 var _hoisted_14 = {
+  "data-cy": "total-incidents",
   "class": "text-4xl"
 };
 var _hoisted_15 = {
@@ -26888,6 +26890,7 @@ var _hoisted_15 = {
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Today ");
 
 var _hoisted_17 = {
+  "data-cy": "todays-incidents",
   "class": "text-4xl"
 };
 var _hoisted_18 = {
@@ -26897,6 +26900,7 @@ var _hoisted_18 = {
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" This Week ");
 
 var _hoisted_20 = {
+  "data-cy": "this-weeks-incidents",
   "class": "text-4xl"
 };
 var _hoisted_21 = {
@@ -26906,6 +26910,7 @@ var _hoisted_21 = {
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" This Month ");
 
 var _hoisted_23 = {
+  "data-cy": "this-months-incidents",
   "class": "text-4xl"
 };
 var _hoisted_24 = {
@@ -27015,6 +27020,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), _ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Simran's Reverse-Shame Form "), _ctx.$page.props.user.is_simran ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_25, _hoisted_27)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 1
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Log Missed Meeting Button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        "data-cy": "log-missed-meeting",
         onClick: _cache[0] || (_cache[0] = function () {
           return _ctx.logMissedMeeting && _ctx.logMissedMeeting.apply(_ctx, arguments);
         }),
