@@ -1,15 +1,21 @@
 describe('Missed Meetings', () => {
-    beforeEach(() => {
-        cy.refreshDatabase();
-        cy.seed();
-    });
+    // beforeEach(() => {
+    //     cy.refreshDatabase();
+    //     cy.seed();
+    // });
 
     it('authenticated users can see the dashboard', () => {
+        cy.refreshDatabase();
+        cy.seed();
+
         cy.login({ email: 'user@example.com' });
         cy.visit('/').contains('Click here to log (yet another) meeting');
     });
 
     it('increments and decrements incident counts when button is clicked', () => {
+        cy.refreshDatabase();
+        cy.seed();
+
         cy.login({ email: 'user@example.com' });
         cy.visit('/');
 
@@ -55,5 +61,15 @@ describe('Missed Meetings', () => {
                 parseInt(localStorage.getItem('ogThisMonthsIncidents')) + 1,
             );
         });
+    });
+
+    it('adds a new record to the shame log', () => {
+        cy.refreshDatabase();
+        cy.seed('UserSeeder');
+
+        cy.login({ email: 'user@example.com' });
+        cy.visit('/');
+        cy.get('[data-cy=log-missed-meeting]').click();
+        cy.visit('/shame-log').contains('1 second ago');
     });
 });
