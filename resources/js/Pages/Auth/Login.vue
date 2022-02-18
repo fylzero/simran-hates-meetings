@@ -54,7 +54,7 @@
                         Forgot your password?
                     </Link>
 
-                    <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <jet-button id="login" class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Log in
                     </jet-button>
                 </div>

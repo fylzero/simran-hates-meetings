@@ -134,8 +134,8 @@
   "": {
     "name": null,
     "domain": null,
-    "action": "Closure",
-    "uri": "send",
+    "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+    "uri": "sanctum/csrf-cookie",
     "method": [
       "GET",
       "HEAD"
