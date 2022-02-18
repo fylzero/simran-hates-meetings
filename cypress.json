@@ -1,7 +1,7 @@
 {
     "baseUrl": "https://simran-hates-meetings.test",
     "chromeWebSecurity": false,
-    "retries": 2,
+    "retries": 0,
     "defaultCommandTimeout": 5000,
     "watchForFileChanges": true,
     "integrationFolder": "tests/cypress/integration",

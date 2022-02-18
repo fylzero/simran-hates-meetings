@@ -10,7 +10,8 @@ class BrowserSessionsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_other_browser_sessions_can_be_logged_out()
+    /** @test */
+    public function other_browser_sessions_can_be_logged_out()
     {
         $this->actingAs($user = User::factory()->create());
 
