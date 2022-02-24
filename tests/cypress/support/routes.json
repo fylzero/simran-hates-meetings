@@ -255,6 +255,15 @@
       "POST"
     ]
   },
+  "two-factor.confirm": {
+    "name": "two-factor.confirm",
+    "domain": null,
+    "action": "Laravel\\Fortify\\Http\\Controllers\\ConfirmedTwoFactorAuthenticationController@store",
+    "uri": "user/confirmed-two-factor-authentication",
+    "method": [
+      "POST"
+    ]
+  },
   "two-factor.disable": {
     "name": "two-factor.disable",
     "domain": null,
