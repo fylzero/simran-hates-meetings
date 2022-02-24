@@ -1,11 +1,9 @@
 describe('Authentication', () => {
-    // beforeEach(() => {
-    //     cy.refreshDatabase();
-    //     cy.seed();
-    // });
+    beforeEach(() => {
+        cy.refreshDatabase();
+    });
 
     it('signs a user in', () => {
-        cy.refreshDatabase();
         cy.seed();
 
         cy.visit('/login');

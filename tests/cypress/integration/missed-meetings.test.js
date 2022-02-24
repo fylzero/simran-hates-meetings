@@ -1,11 +1,9 @@
 describe('Missed Meetings', () => {
-    // beforeEach(() => {
-    //     cy.refreshDatabase();
-    //     cy.seed();
-    // });
+    beforeEach(() => {
+        cy.refreshDatabase();
+    });
 
     it('authenticated users can see the dashboard', () => {
-        cy.refreshDatabase();
         cy.seed();
 
         cy.login({ email: 'user@example.com' });
@@ -13,7 +11,6 @@ describe('Missed Meetings', () => {
     });
 
     it('increments and decrements incident counts when button is clicked', () => {
-        cy.refreshDatabase();
         cy.seed();
 
         cy.login({ email: 'user@example.com' });
@@ -64,7 +61,6 @@ describe('Missed Meetings', () => {
     });
 
     it('adds a new record to the shame log', () => {
-        cy.refreshDatabase();
         cy.seed('UserSeeder');
 
         cy.login({ email: 'user@example.com' });
