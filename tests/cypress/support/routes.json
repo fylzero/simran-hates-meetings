@@ -216,16 +216,6 @@
       "PUT"
     ]
   },
-  "password.confirm": {
-    "name": "password.confirm",
-    "domain": null,
-    "action": "Laravel\\Fortify\\Http\\Controllers\\ConfirmablePasswordController@show",
-    "uri": "user/confirm-password",
-    "method": [
-      "GET",
-      "HEAD"
-    ]
-  },
   "password.confirmation": {
     "name": "password.confirmation",
     "domain": null,
@@ -234,6 +224,15 @@
     "method": [
       "GET",
       "HEAD"
+    ]
+  },
+  "password.confirm": {
+    "name": "password.confirm",
+    "domain": null,
+    "action": "Laravel\\Fortify\\Http\\Controllers\\ConfirmablePasswordController@store",
+    "uri": "user/confirm-password",
+    "method": [
+      "POST"
     ]
   },
   "two-factor.login": {
@@ -278,6 +277,16 @@
     "domain": null,
     "action": "Laravel\\Fortify\\Http\\Controllers\\TwoFactorQrCodeController@show",
     "uri": "user/two-factor-qr-code",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "two-factor.secret-key": {
+    "name": "two-factor.secret-key",
+    "domain": null,
+    "action": "Laravel\\Fortify\\Http\\Controllers\\TwoFactorSecretKeyController@show",
+    "uri": "user/two-factor-secret-key",
     "method": [
       "GET",
       "HEAD"
