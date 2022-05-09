@@ -29,6 +29,7 @@ class MissedMeetingMail extends Mailable
             "Why!? What's wrong with living at your ex's parents house?",
             "When you eat a gummy bear, do you eat the head or the feet first?",
             "I'm pretty sure NASA makes up everything about space in order to convince us the earth is round.",
+            "I really like your tattoos!",
         ]);
 
         $this->quote = $quotes->random();
