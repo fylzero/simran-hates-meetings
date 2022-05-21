@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, defineEmits } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import moment from 'moment'
 require('moment-timezone')
 
