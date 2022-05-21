@@ -67,37 +67,28 @@
     </div>
 </template>
 
-<script>
-import DangerButton from '@/Jetstream/DangerButton';
+<script setup>
+import { createToast } from 'mosha-vue-toastify'
 
-export default {
-    props: ['missedMeetings'],
-    data() {
-        return {
-            meetings: this.missedMeetings,
-        };
-    },
-    components: {
-        DangerButton,
-    },
-    methods: {
-        deleteMissedMeeting(id, index) {
-            console.log(id);
-            axios
-                .delete('missed-meeting/' + id)
-                .then((response) => {
-                    // Clear the row
-                    this.meetings.splice(index, 1);
+const props = defineProps(['missedMeetings'])
 
-                    this.$moshaToast('Missed meeting removed!', {
-                        position: 'bottom-right',
-                        type: 'danger',
-                    });
-                })
-                .catch((error) => {
-                    console.log(error.response);
-                });
-        },
-    },
-};
+const meetings = props.missedMeetings
+
+function deleteMissedMeeting(id, index) {
+    console.log(id)
+    axios
+        .delete('missed-meeting/' + id)
+        .then((response) => {
+            // Clear the row
+            meetings.splice(index, 1)
+
+            createToast('Missed meeting removed!', {
+                position: 'bottom-right',
+                type: 'danger',
+            })
+        })
+        .catch((error) => {
+            console.log(error.response)
+        })
+}
 </script>

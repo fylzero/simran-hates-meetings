@@ -129,62 +129,53 @@
     </app-layout>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-import AppLayout from '@/Layouts/AppLayout.vue';
-import Card from '@/Components/Card.vue';
+<script setup>
+import { ref } from 'vue'
+import { createToast } from 'mosha-vue-toastify'
+import AppLayout from '@/Layouts/AppLayout.vue'
+import Card from '@/Components/Card.vue'
 
-export default defineComponent({
-    components: {
-        AppLayout,
-        Card,
-    },
-    props: [
-        'missedMeetingsAll',
-        'missedMeetingsToday',
-        'missedMeetingsThisWeek',
-        'missedMeetingsThisMonth',
-        'missedMeetingsDaysSince',
-    ],
-    data() {
-        return {
-            animationDuration: 500,
-            logButtonLoading: false,
-            missed: {
-                all: this.missedMeetingsAll,
-                today: this.missedMeetingsToday,
-                thisWeek: this.missedMeetingsThisWeek,
-                thisMonth: this.missedMeetingsThisMonth,
-                daysSince: this.missedMeetingsDaysSince,
-            },
-        };
-    },
-    methods: {
-        logMissedMeeting() {
-            this.logButtonLoading = true;
-            axios
-                .post('/missed-meeting/')
-                .then((response) => {
-                    this.missed.all++;
-                    this.missed.today++;
-                    this.missed.thisWeek++;
-                    this.missed.thisMonth++;
-                    this.missed.daysSince = 0;
+const props = defineProps([
+    'missedMeetingsAll',
+    'missedMeetingsToday',
+    'missedMeetingsThisWeek',
+    'missedMeetingsThisMonth',
+    'missedMeetingsDaysSince',
+])
 
-                    this.$moshaToast('Simran has been notified!', {
-                        position: 'bottom-right',
-                        type: 'success',
-                    });
-                })
-                .catch((error) => {
-                    console.log(error.response);
-                })
-                .finally(() => {
-                    this.logButtonLoading = false;
-                });
-        },
-    },
-});
+const animationDuration = ref(500)
+const logButtonLoading = ref(false)
+const missed = ref({
+    all: props.missedMeetingsAll,
+    today: props.missedMeetingsToday,
+    thisWeek: props.missedMeetingsThisWeek,
+    thisMonth: props.missedMeetingsThisMonth,
+    daysSince: props.missedMeetingsDaysSince,
+})
+
+function logMissedMeeting() {
+    logButtonLoading.value = true
+    axios
+        .post('/missed-meeting/')
+        .then((response) => {
+            missed.value.all++
+            missed.value.today++
+            missed.value.thisWeek++
+            missed.value.thisMonth++
+            missed.value.daysSince = 0
+
+            createToast('Simran has been notified!', {
+                position: 'bottom-right',
+                type: 'success',
+            })
+        })
+        .catch((error) => {
+            console.log(error.response)
+        })
+        .finally(() => {
+            logButtonLoading.value = false
+        })
+}
 </script>
 
 <style scoped>

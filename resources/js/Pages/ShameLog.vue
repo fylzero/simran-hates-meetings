@@ -20,15 +20,9 @@
     </app-layout>
 </template>
 
-<script>
-import AppLayout from '@/Layouts/AppLayout';
-import ShameTable from '@/Components/ShameTable';
+<script setup>
+import AppLayout from '@/Layouts/AppLayout'
+import ShameTable from '@/Components/ShameTable'
 
-export default {
-    props: ['missedMeetings'],
-    components: {
-        AppLayout,
-        ShameTable,
-    },
-};
+const props = defineProps(['missedMeetings'])
 </script>
