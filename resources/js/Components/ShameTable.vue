@@ -75,7 +75,6 @@ const props = defineProps(['missedMeetings'])
 const meetings = props.missedMeetings
 
 function deleteMissedMeeting(id, index) {
-    console.log(id)
     axios
         .delete('missed-meeting/' + id)
         .then((response) => {

@@ -98,17 +98,17 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import AppLayout from '@/Layouts/AppLayout.vue';
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue';
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue';
-import JetButton from '@/Jetstream/Button.vue';
-import JetInput from '@/Jetstream/Input.vue';
-import JetCheckbox from '@/Jetstream/Checkbox.vue';
-import JetLabel from '@/Jetstream/Label.vue';
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
-import TimeZoneSelect from '@/Components/TimeZoneSelect.vue';
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { defineComponent } from 'vue'
+import AppLayout from '@/Layouts/AppLayout.vue'
+import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
+import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
+import JetButton from '@/Jetstream/Button.vue'
+import JetInput from '@/Jetstream/Input.vue'
+import JetCheckbox from '@/Jetstream/Checkbox.vue'
+import JetLabel from '@/Jetstream/Label.vue'
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+import TimeZoneSelect from '@/Components/TimeZoneSelect.vue'
+import { Head, Link } from '@inertiajs/inertia-vue3'
 
 export default defineComponent({
     components: {
@@ -135,18 +135,18 @@ export default defineComponent({
                 timezone: '',
                 terms: false,
             }),
-        };
+        }
     },
 
     methods: {
         selectTz(e) {
-            this.form.timezone = e;
+            this.form.timezone = e
         },
         submit() {
             this.form.post(this.route('register'), {
                 onFinish: () => this.form.reset('password', 'password_confirmation'),
-            });
+            })
         },
     },
-});
+})
 </script>

@@ -143,8 +143,7 @@ const props = defineProps([
     'missedMeetingsDaysSince',
 ])
 
-const animationDuration = ref(500)
-const logButtonLoading = ref(true)
+const logButtonLoading = ref(false)
 const missed = ref({
     all: props.missedMeetingsAll,
     today: props.missedMeetingsToday,

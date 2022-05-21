@@ -11,30 +11,27 @@
     </select>
 </template>
 
-<script>
-import moment from 'moment';
-require('moment-timezone');
+<script setup>
+import { ref, computed, onMounted, defineEmits } from 'vue'
+import moment from 'moment'
+require('moment-timezone')
 
-export default {
-    props: ['currentTz'],
-    data() {
-        return {
-            timezones: null,
-        };
-    },
-    computed: {
-        tzGuess() {
-            return this.currentTz ?? moment.tz.guess(true);
-        },
-    },
-    methods: {
-        selectTimezone(event) {
-            this.$emit('tz', event.target.value);
-        },
-    },
-    mounted() {
-        this.timezones = moment.tz.names();
-        this.$emit('tz', this.currentTz ?? moment.tz.guess(true));
-    },
-};
+const props = defineProps(['currentTz'])
+
+const emit = defineEmits(['tz'])
+
+const timezones = ref(null)
+
+const tzGuess = computed(() => {
+    return props.currentTz ?? moment.tz.guess(true)
+})
+
+function selectTimezone(event) {
+    emit('tz', event.target.value)
+}
+
+onMounted(() => {
+    timezones.value = moment.tz.names()
+    emit('tz', props.currentTz ?? moment.tz.guess(true))
+})
 </script>

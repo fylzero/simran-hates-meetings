@@ -1112,9 +1112,6 @@ select {
 .mt-12 {
   margin-top: 3rem;
 }
-.mr-6 {
-  margin-right: 1.5rem;
-}
 .-ml-1 {
   margin-left: -0.25rem;
 }
@@ -1517,6 +1514,14 @@ select {
 .bg-green-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(5 150 105 / var(--tw-bg-opacity));
+}
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 120 87 / var(--tw-bg-opacity));
+}
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;

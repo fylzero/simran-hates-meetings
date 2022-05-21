@@ -180,12 +180,12 @@
 </template>
 
 <script>
-import { Link } from '@inertiajs/inertia-vue3';
-import JetApplicationMark from '@/Jetstream/ApplicationMark';
-import JetDropdown from '@/Jetstream/Dropdown';
-import JetDropdownLink from '@/Jetstream/DropdownLink';
-import JetNavLink from '@/Jetstream/NavLink';
-import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink';
+import { Link } from '@inertiajs/inertia-vue3'
+import JetApplicationMark from '@/Jetstream/ApplicationMark'
+import JetDropdown from '@/Jetstream/Dropdown'
+import JetDropdownLink from '@/Jetstream/DropdownLink'
+import JetNavLink from '@/Jetstream/NavLink'
+import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
 export default {
     components: {
         Link,
@@ -198,13 +198,13 @@ export default {
     data() {
         return {
             showingNavigationDropdown: false,
-        };
+        }
     },
 
     methods: {
         logout() {
-            this.$inertia.post(route('logout'));
+            this.$inertia.post(route('logout'))
         },
     },
-};
+}
 </script>

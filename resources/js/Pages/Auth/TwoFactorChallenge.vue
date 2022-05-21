@@ -68,15 +68,15 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import { Head } from '@inertiajs/inertia-vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue';
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue';
-import JetButton from '@/Jetstream/Button.vue';
-import JetInput from '@/Jetstream/Input.vue';
-import JetLabel from '@/Jetstream/Label.vue';
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
+import { defineComponent } from 'vue'
+import { Head } from '@inertiajs/inertia-vue3'
+import AppLayout from '@/Layouts/AppLayout.vue'
+import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
+import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
+import JetButton from '@/Jetstream/Button.vue'
+import JetInput from '@/Jetstream/Input.vue'
+import JetLabel from '@/Jetstream/Label.vue'
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
 
 export default defineComponent({
     components: {
@@ -97,27 +97,27 @@ export default defineComponent({
                 code: '',
                 recovery_code: '',
             }),
-        };
+        }
     },
 
     methods: {
         toggleRecovery() {
-            this.recovery ^= true;
+            this.recovery ^= true
 
             this.$nextTick(() => {
                 if (this.recovery) {
-                    this.$refs.recovery_code.focus();
-                    this.form.code = '';
+                    this.$refs.recovery_code.focus()
+                    this.form.code = ''
                 } else {
-                    this.$refs.code.focus();
-                    this.form.recovery_code = '';
+                    this.$refs.code.focus()
+                    this.form.recovery_code = ''
                 }
-            });
+            })
         },
 
         submit() {
-            this.form.post(this.route('two-factor.login'));
+            this.form.post(this.route('two-factor.login'))
         },
     },
-});
+})
 </script>

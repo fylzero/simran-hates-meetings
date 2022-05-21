@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import NavPrimary from '@/Layouts/NavPrimary.vue';
-import JetBanner from '@/Jetstream/Banner.vue';
-import { Head } from '@inertiajs/inertia-vue3';
+import { defineComponent } from 'vue'
+import NavPrimary from '@/Layouts/NavPrimary.vue'
+import JetBanner from '@/Jetstream/Banner.vue'
+import { Head } from '@inertiajs/inertia-vue3'
 
 export default defineComponent({
     props: {
@@ -39,5 +39,5 @@ export default defineComponent({
         NavPrimary,
         JetBanner,
     },
-});
+})
 </script>
