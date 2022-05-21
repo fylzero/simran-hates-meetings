@@ -93,7 +93,7 @@
                 >
                     <svg
                         v-if="logButtonLoading"
-                        class="mr-6 -ml-1 mr-3 h-5 w-5 animate-spin text-white"
+                        class="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ const props = defineProps([
 ])
 
 const animationDuration = ref(500)
-const logButtonLoading = ref(false)
+const logButtonLoading = ref(true)
 const missed = ref({
     all: props.missedMeetingsAll,
     today: props.missedMeetingsToday,

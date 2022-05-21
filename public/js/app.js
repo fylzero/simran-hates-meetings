@@ -23096,7 +23096,7 @@ __webpack_require__.r(__webpack_exports__);
     expose();
     var props = __props;
     var animationDuration = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(500);
-    var logButtonLoading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var logButtonLoading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
     var missed = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
       all: props.missedMeetingsAll,
       today: props.missedMeetingsToday,
@@ -27089,7 +27089,7 @@ var _hoisted_27 = [_hoisted_26];
 var _hoisted_28 = ["disabled"];
 var _hoisted_29 = {
   key: 0,
-  "class": "mr-6 -ml-1 mr-3 h-5 w-5 animate-spin text-white",
+  "class": "-ml-1 mr-3 h-5 w-5 animate-spin text-white",
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
   viewBox: "0 0 24 24"
