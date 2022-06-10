@@ -42,11 +42,6 @@
                 </div>
 
                 <div class="mt-4">
-                    <jet-label for="timezone" value="Timezone" />
-                    <time-zone-select @tz="selectTz" id="timezone"></time-zone-select>
-                </div>
-
-                <div class="mt-4">
                     <jet-label for="password_confirmation" value="Confirm Password" />
                     <jet-input
                         id="password_confirmation"
@@ -58,7 +53,12 @@
                     />
                 </div>
 
-                <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
+                <div class="mt-4">
+                    <jet-label for="timezone" value="Timezone" />
+                    <time-zone-select @tz="selectTz" id="timezone"></time-zone-select>
+                </div>
+
+                <div class="mt-5" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
                     <jet-label for="terms">
                         <div class="flex items-center">
                             <jet-checkbox name="terms" id="terms" v-model:checked="form.terms" />
@@ -83,7 +83,7 @@
                     </jet-label>
                 </div>
 
-                <div class="mt-4 flex items-center justify-end">
+                <div class="mt-5 flex items-center justify-end">
                     <Link :href="route('login')" class="text-sm text-gray-600 underline hover:text-gray-900">
                         Already registered?
                     </Link>
