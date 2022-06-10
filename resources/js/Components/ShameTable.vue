@@ -25,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
-                            <tr v-for="(missedMeeting, index) in this.meetings" :key="index">
+                            <tr v-for="(missedMeeting, index) in meetings" :key="index">
                                 <td class="whitespace-nowrap px-6 py-4">
                                     <div class="flex items-center">
                                         <div>
