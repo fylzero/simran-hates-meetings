@@ -5,7 +5,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
-import VTooltip from 'v-tooltip'
+import FloatingVue from 'floating-vue'
+import 'floating-vue/dist/style.css'
 
 // Mosha Vue Toastify
 // https://szboynono.github.io/mosha-vue-toastify/
@@ -20,7 +21,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
-            .use(VTooltip)
+            .use(FloatingVue)
             .use(moshaToast)
             .mixin({ methods: { route } })
             .mount(el)

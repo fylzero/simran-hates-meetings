@@ -43,9 +43,19 @@
 
                 <div class="hidden sm:ml-6 sm:flex sm:items-center">
                     <template v-if="$page.props.user">
+                        <a
+                            href="https://github.com/fylzero/simran-hates-meetings/issues/new"
+                            v-tooltip.bottom="'Report Problem/Request Feature'"
+                            target="blank"
+                            class="mr-2"
+                        >
+                            <i class="fas fa-bug text-purple-700"></i>
+                        </a>
+
                         <button
                             v-if="$page.props.jetstream.managesProfilePhotos"
                             class="flex rounded-full border-2 border-transparent text-sm transition duration-150 ease-in-out focus:border-gray-300 focus:outline-none"
+                            v-tooltip="'Profile & Settings'"
                         >
                             <img
                                 class="h-8 w-8 rounded-full object-cover"
@@ -65,7 +75,7 @@
                         </span>
                     </template>
 
-                    <form @submit.prevent="logout" v-if="$page.props.user">
+                    <form @submit.prevent="logout" v-if="$page.props.user" v-tooltip="'Logout'">
                         <button type="submit" v-tooltip.bottom="'Logout'">
                             <i class="fas fa-power-off text-red-600"></i>
                         </button>
