@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\MissedMeeting;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,17 +41,13 @@ class User extends Authenticatable
         'is_simran',
     ];
 
-
     /** Relationships */
-
     public function missedMeetings()
     {
         return $this->hasMany(MissedMeeting::class);
     }
 
-
     /** Attributes */
-
     public function getIsSimranAttribute()
     {
         return $this->id == 1;

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\MissedMeeting;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\MissedMeetingMail;
+use App\Models\MissedMeeting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MissedMeetingController extends Controller
 {
@@ -22,11 +22,11 @@ class MissedMeetingController extends Controller
             [
                 'name' => config('mail.recipient.name'),
                 'email' => config('mail.recipient.email'),
-            ]
+            ],
         ])->send(new MissedMeetingMail());
 
         MissedMeeting::create([
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]);
 
         return response()->json([

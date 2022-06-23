@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\MissedMeeting;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MissedMeetingFactory extends Factory

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
 use App\Models\MissedMeeting;
+use Inertia\Inertia;
 
 class PageController extends Controller
 {

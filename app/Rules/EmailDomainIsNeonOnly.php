@@ -26,6 +26,7 @@ class EmailDomainIsNeonOnly implements Rule
     public function passes($attribute, $value)
     {
         $domain = substr($value, strpos($value, '@') + 1);
+
         return in_array($domain, explode(',', config('app.allowed_domains')));
     }
 

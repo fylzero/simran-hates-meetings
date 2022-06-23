@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class MissedMeeting extends Model
 {
@@ -29,17 +28,13 @@ class MissedMeeting extends Model
         $this->tz = auth()->user()->timezone ?? 'America/Chicago';
     }
 
-
     /** Relationships */
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-
     /** Attributes */
-
     public function getCreatedAtLocalTimezoneAttribute()
     {
         return $this->created_at->timezone($this->tz)->format('F jS Y @ g:i a');
@@ -50,9 +45,7 @@ class MissedMeeting extends Model
         return $this->created_at->diffForHumans(null, null, false, 3);
     }
 
-
     /** Scopes */
-
     public function scopeToday($query)
     {
         return $query->where('created_at', '>', now()->timezone($this->tz)->startOfDay()->utc());
