@@ -22,5 +22,5 @@ Route::get('send', function () {
             'name' => config('mail.recipient.name'),
             'email' => config('mail.recipient.email'),
         ],
-    ])->send(new MissedMeetingMail());
+    ])->send(new MissedMeetingMail);
 });
