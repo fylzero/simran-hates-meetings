@@ -2,7 +2,10 @@
     "name": "fylzero/simran-hates-meetings",
     "type": "project",
     "description": "Simran Hates Meetings.",
-    "keywords": ["simran", "meetings"],
+    "keywords": [
+        "simran",
+        "meetings"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -11,7 +14,7 @@
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.5.2",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^9.19",
         "laravel/horizon": "^5.9",
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.14",
