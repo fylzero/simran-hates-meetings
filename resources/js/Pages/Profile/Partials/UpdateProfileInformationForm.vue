@@ -81,7 +81,7 @@ import JetInputError from '@/Jetstream/InputError.vue'
 import JetLabel from '@/Jetstream/Label.vue'
 import JetActionMessage from '@/Jetstream/ActionMessage.vue'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
-import TimeZoneSelect from '@/Components/TimeZoneSelect'
+import TimeZoneSelect from '@/Components/TimeZoneSelect.vue'
 
 export default defineComponent({
     components: {

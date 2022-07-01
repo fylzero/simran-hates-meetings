@@ -22,7 +22,7 @@
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
-import ShameTable from '@/Components/ShameTable'
+import ShameTable from '@/Components/ShameTable.vue'
 
 const props = defineProps(['missedMeetings'])
 </script>
