@@ -14,7 +14,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import moment from 'moment'
-require('moment-timezone')
+import 'moment-timezone'
 
 const props = defineProps(['currentTz'])
 
