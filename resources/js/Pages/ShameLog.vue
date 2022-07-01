@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import AppLayout from '@/Layouts/AppLayout'
+import AppLayout from '@/Layouts/AppLayout.vue'
 import ShameTable from '@/Components/ShameTable'
 
 const props = defineProps(['missedMeetings'])

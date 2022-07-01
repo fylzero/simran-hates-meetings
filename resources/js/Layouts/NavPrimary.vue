@@ -191,11 +191,11 @@
 
 <script>
 import { Link } from '@inertiajs/inertia-vue3'
-import JetApplicationMark from '@/Jetstream/ApplicationMark'
-import JetDropdown from '@/Jetstream/Dropdown'
-import JetDropdownLink from '@/Jetstream/DropdownLink'
-import JetNavLink from '@/Jetstream/NavLink'
-import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
+import JetApplicationMark from '@/Jetstream/ApplicationMark.vue'
+import JetDropdown from '@/Jetstream/Dropdown.vue'
+import JetDropdownLink from '@/Jetstream/DropdownLink.vue'
+import JetNavLink from '@/Jetstream/NavLink.vue'
+import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
 export default {
     components: {
         Link,
