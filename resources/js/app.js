@@ -3,9 +3,11 @@ window._ = _
 import axios from 'axios'
 window.axios = axios
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+import '../css/app.css'
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { InertiaProgress } from '@inertiajs/progress'
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
@@ -19,7 +21,7 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => require(`./Pages/${name}.vue`),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
