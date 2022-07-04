@@ -11,11 +11,7 @@ class {{ class }} extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+    // Create a new message instance.
     public function __construct()
     {
         //

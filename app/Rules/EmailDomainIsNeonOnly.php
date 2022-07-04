@@ -6,24 +6,13 @@ use Illuminate\Contracts\Validation\Rule;
 
 class EmailDomainIsNeonOnly implements Rule
 {
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
+    // Create a new rule instance.
     public function __construct()
     {
         //
     }
 
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         $domain = substr($value, strpos($value, '@') + 1);
 

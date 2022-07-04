@@ -1,14 +1,18 @@
 import _ from 'lodash'
 window._ = _
+
 import axios from 'axios'
 window.axios = axios
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+
 import '../css/app.css'
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { InertiaProgress } from '@inertiajs/progress'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 
@@ -25,9 +29,9 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(ZiggyVue, Ziggy)
             .use(FloatingVue)
             .use(moshaToast)
-            .mixin({ methods: { route } })
             .mount(el)
     },
 })

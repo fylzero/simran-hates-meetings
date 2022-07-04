@@ -12,6 +12,7 @@
         <!-- Scripts -->
         @routes
         @vite('resources/js/app.js')
+        @inertiaHead
         <script src="https://kit.fontawesome.com/f8c11557a9.js" crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased">

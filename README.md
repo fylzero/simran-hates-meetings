@@ -17,9 +17,10 @@ git clone https://github.com/fylzero/simran-hates-meetings.git
 ```
 
 ```
-npm install
-composer install
+cp .env.example .env
 touch database/database.sqlite
+composer install
+npm install
 php artisan migrate:fresh --seed
-php artisan serve
+npm run dev (to start Vite)
 ```

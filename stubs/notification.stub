@@ -11,11 +11,7 @@ class {{ class }} extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
+    // Create a new notification instance.
     public function __construct()
     {
         //
