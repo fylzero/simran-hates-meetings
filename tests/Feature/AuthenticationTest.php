@@ -22,9 +22,9 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function users_can_authenticate_using_the_login_screen()
     {
-        return $this->markTestSkipped('Test not working.');
-
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'email' => 'somebody@'.explode(',', config('app.allowed_domains'))[0],
+        ]);
 
         $response = $this->post('/login', [
             'email' => $user->email,

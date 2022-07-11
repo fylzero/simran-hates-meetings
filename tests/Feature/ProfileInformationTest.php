@@ -13,16 +13,21 @@ class ProfileInformationTest extends TestCase
     /** @test */
     public function profile_information_can_be_updated()
     {
-        return $this->markTestSkipped('Test not working.');
+        $user = User::factory()->create([
+            'email' => 'testuser@'.explode(',', config('app.allowed_domains'))[0],
+        ]);
 
-        $this->actingAs($user = User::factory()->create());
+        $this->actingAs($user);
+
+        $email = 'somebody@'.explode(',', config('app.allowed_domains'))[0];
 
         $response = $this->put('/user/profile-information', [
             'name' => 'Test Name',
-            'email' => 'test@example.com',
+            'email' => $email,
+            'timezone' => 'America/Chicago',
         ]);
 
         $this->assertEquals('Test Name', $user->fresh()->name);
-        $this->assertEquals('test@example.com', $user->fresh()->email);
+        $this->assertEquals($email, $user->fresh()->email);
     }
 }

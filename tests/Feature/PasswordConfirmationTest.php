@@ -23,8 +23,6 @@ class PasswordConfirmationTest extends TestCase
     /** @test */
     public function password_can_be_confirmed()
     {
-        return $this->markTestSkipped('Test not working.');
-
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post('/user/confirm-password', [
@@ -38,8 +36,6 @@ class PasswordConfirmationTest extends TestCase
     /** @test */
     public function password_is_not_confirmed_with_invalid_password()
     {
-        return $this->markTestSkipped('Test not working.');
-
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post('/user/confirm-password', [
