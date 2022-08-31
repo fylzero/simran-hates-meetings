@@ -9,23 +9,25 @@
                             <tr>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-                                >
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     Person
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-                                >
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     When Meeting Was Marked As Missed, Cancelled, Late-To, or Rescheduled
                                 </th>
-                                <th scope="col" class="relative px-6 py-3">
+                                <th
+                                    scope="col"
+                                    class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
-                            <tr v-for="(missedMeeting, index) in meetings" :key="index">
+                            <tr
+                                v-for="(missedMeeting, index) in meetings"
+                                :key="index">
                                 <td class="whitespace-nowrap px-6 py-4">
                                     <div class="flex items-center">
                                         <div>
@@ -51,8 +53,7 @@
                                             $page.props.user.id == missedMeeting.user.id && !$page.props.user.is_simran
                                         "
                                         @click="deleteMissedMeeting(missedMeeting.id, index)"
-                                        class="focus:shadow-outline-red inline-flex items-center justify-center rounded-md border-0 bg-red-600 px-4 py-2 text-sm font-semibold tracking-widest text-white transition duration-150 ease-in-out hover:bg-red-500 focus:border-red-700 focus:outline-none active:bg-red-600"
-                                    >
+                                        class="focus:shadow-outline-red inline-flex items-center justify-center rounded-md border-0 bg-red-600 px-4 py-2 text-sm font-semibold tracking-widest text-white transition duration-150 ease-in-out hover:bg-red-500 focus:border-red-700 focus:outline-none active:bg-red-600">
                                         Delete
                                     </button>
                                 </td>

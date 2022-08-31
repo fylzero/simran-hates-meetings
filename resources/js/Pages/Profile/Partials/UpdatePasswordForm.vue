@@ -6,48 +6,65 @@
 
         <template #form>
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="current_password" value="Current Password" />
+                <JetLabel
+                    for="current_password"
+                    value="Current Password" />
                 <JetInput
                     id="current_password"
                     ref="currentPasswordInput"
                     v-model="form.current_password"
                     type="password"
                     class="mt-1 block w-full"
-                    autocomplete="current-password"
-                />
-                <JetInputError :message="form.errors.current_password" class="mt-2" />
+                    autocomplete="current-password" />
+                <JetInputError
+                    :message="form.errors.current_password"
+                    class="mt-2" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="password" value="New Password" />
+                <JetLabel
+                    for="password"
+                    value="New Password" />
                 <JetInput
                     id="password"
                     ref="passwordInput"
                     v-model="form.password"
                     type="password"
                     class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
-                <JetInputError :message="form.errors.password" class="mt-2" />
+                    autocomplete="new-password" />
+                <JetInputError
+                    :message="form.errors.password"
+                    class="mt-2" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="password_confirmation" value="Confirm Password" />
+                <JetLabel
+                    for="password_confirmation"
+                    value="Confirm Password" />
                 <JetInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
                     type="password"
                     class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
-                <JetInputError :message="form.errors.password_confirmation" class="mt-2" />
+                    autocomplete="new-password" />
+                <JetInputError
+                    :message="form.errors.password_confirmation"
+                    class="mt-2" />
             </div>
         </template>
 
         <template #actions>
-            <JetActionMessage :on="form.recentlySuccessful" class="mr-3"> Saved. </JetActionMessage>
+            <JetActionMessage
+                :on="form.recentlySuccessful"
+                class="mr-3">
+                Saved.
+            </JetActionMessage>
 
-            <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Save </JetButton>
+            <JetButton
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing">
+                Save
+            </JetButton>
         </template>
     </JetFormSection>
 </template>

@@ -11,7 +11,9 @@
 
             <form @submit.prevent="submit">
                 <div>
-                    <jet-label for="name" value="Name" />
+                    <jet-label
+                        for="name"
+                        value="Name" />
                     <jet-input
                         id="name"
                         type="text"
@@ -19,49 +21,66 @@
                         v-model="form.name"
                         required
                         autofocus
-                        autocomplete="name"
-                    />
+                        autocomplete="name" />
                 </div>
 
                 <div class="mt-4">
-                    <jet-label for="email" value="Email" />
-                    <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required />
+                    <jet-label
+                        for="email"
+                        value="Email" />
+                    <jet-input
+                        id="email"
+                        type="email"
+                        class="mt-1 block w-full"
+                        v-model="form.email"
+                        required />
                     <p class="mt-2 text-sm text-indigo-600">Must use company email address</p>
                 </div>
 
                 <div class="mt-4">
-                    <jet-label for="password" value="Password" />
+                    <jet-label
+                        for="password"
+                        value="Password" />
                     <jet-input
                         id="password"
                         type="password"
                         class="mt-1 block w-full"
                         v-model="form.password"
                         required
-                        autocomplete="new-password"
-                    />
+                        autocomplete="new-password" />
                 </div>
 
                 <div class="mt-4">
-                    <jet-label for="password_confirmation" value="Confirm Password" />
+                    <jet-label
+                        for="password_confirmation"
+                        value="Confirm Password" />
                     <jet-input
                         id="password_confirmation"
                         type="password"
                         class="mt-1 block w-full"
                         v-model="form.password_confirmation"
                         required
-                        autocomplete="new-password"
-                    />
+                        autocomplete="new-password" />
                 </div>
 
                 <div class="mt-4">
-                    <jet-label for="timezone" value="Timezone" />
-                    <time-zone-select @tz="selectTz" id="timezone"></time-zone-select>
+                    <jet-label
+                        for="timezone"
+                        value="Timezone" />
+                    <time-zone-select
+                        @tz="selectTz"
+                        id="timezone"></time-zone-select>
                 </div>
 
-                <div class="mt-5" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
+                <div
+                    class="mt-5"
+                    v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
                     <jet-label for="terms">
                         <div class="flex items-center">
-                            <jet-checkbox name="terms" id="terms" v-model:checked="form.terms" />
+                            <jet-checkbox
+                                name="terms"
+                                id="terms"
+                                v-model:checked="form.terms" />
 
                             <div class="ml-2">
                                 I agree to the
@@ -84,11 +103,16 @@
                 </div>
 
                 <div class="mt-5 flex items-center justify-end">
-                    <Link :href="route('login')" class="text-sm text-gray-600 underline hover:text-gray-900">
+                    <Link
+                        :href="route('login')"
+                        class="text-sm text-gray-600 underline hover:text-gray-900">
                         Already registered?
                     </Link>
 
-                    <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <jet-button
+                        class="ml-4"
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing">
                         Register
                     </jet-button>
                 </div>

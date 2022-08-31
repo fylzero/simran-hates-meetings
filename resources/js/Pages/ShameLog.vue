@@ -10,8 +10,7 @@
                     <img
                         src="/img/shame.gif"
                         class="mx-auto rounded-lg"
-                        alt="Cartoon of kitten Sylvester putting a bag over his head"
-                    />
+                        alt="Cartoon of kitten Sylvester putting a bag over his head" />
                 </div>
 
                 <ShameTable :missedMeetings="missedMeetings" />

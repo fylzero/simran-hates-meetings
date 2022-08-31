@@ -12,7 +12,9 @@
                 reset link that will allow you to choose a new one.
             </div>
 
-            <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
+            <div
+                v-if="status"
+                class="mb-4 text-sm font-medium text-green-600">
                 {{ status }}
             </div>
 
@@ -20,19 +22,22 @@
 
             <form @submit.prevent="submit">
                 <div>
-                    <jet-label for="email" value="Email" />
+                    <jet-label
+                        for="email"
+                        value="Email" />
                     <jet-input
                         id="email"
                         type="email"
                         class="mt-1 block w-full"
                         v-model="form.email"
                         required
-                        autofocus
-                    />
+                        autofocus />
                 </div>
 
                 <div class="mt-4 flex items-center justify-end">
-                    <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <jet-button
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing">
                         Email Password Reset Link
                     </jet-button>
                 </div>

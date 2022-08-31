@@ -5,15 +5,23 @@
         <template #description> Add additional security to your account using two factor authentication. </template>
 
         <template #content>
-            <h3 v-if="twoFactorEnabled && !confirming" class="text-lg font-medium text-gray-900">
+            <h3
+                v-if="twoFactorEnabled && !confirming"
+                class="text-lg font-medium text-gray-900">
                 You have enabled two factor authentication.
             </h3>
 
-            <h3 v-else-if="twoFactorEnabled && confirming" class="text-lg font-medium text-gray-900">
+            <h3
+                v-else-if="twoFactorEnabled && confirming"
+                class="text-lg font-medium text-gray-900">
                 Finish enabling two factor authentication.
             </h3>
 
-            <h3 v-else class="text-lg font-medium text-gray-900">You have not enabled two factor authentication.</h3>
+            <h3
+                v-else
+                class="text-lg font-medium text-gray-900">
+                You have not enabled two factor authentication.
+            </h3>
 
             <div class="mt-3 max-w-xl text-sm text-gray-600">
                 <p>
@@ -25,7 +33,9 @@
             <div v-if="twoFactorEnabled">
                 <div v-if="qrCode">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
-                        <p v-if="confirming" class="font-semibold">
+                        <p
+                            v-if="confirming"
+                            class="font-semibold">
                             To finish enabling two factor authentication, scan the following QR code using your phone's
                             authenticator application or enter the setup key and provide the generated OTP code.
                         </p>
@@ -36,14 +46,22 @@
                         </p>
                     </div>
 
-                    <div class="mt-4" v-html="qrCode" />
+                    <div
+                        class="mt-4"
+                        v-html="qrCode" />
 
-                    <div class="mt-4 max-w-xl text-sm text-gray-600" v-if="setupKey">
+                    <div
+                        class="mt-4 max-w-xl text-sm text-gray-600"
+                        v-if="setupKey">
                         <p class="font-semibold">Setup Key: <span v-html="setupKey"></span></p>
                     </div>
 
-                    <div v-if="confirming" class="mt-4">
-                        <JetLabel for="code" value="Code" />
+                    <div
+                        v-if="confirming"
+                        class="mt-4">
+                        <JetLabel
+                            for="code"
+                            value="Code" />
 
                         <JetInput
                             id="code"
@@ -54,10 +72,11 @@
                             inputmode="numeric"
                             autofocus
                             autocomplete="one-time-code"
-                            @keyup.enter="confirmTwoFactorAuthentication"
-                        />
+                            @keyup.enter="confirmTwoFactorAuthentication" />
 
-                        <JetInputError :message="confirmationForm.errors.code" class="mt-2" />
+                        <JetInputError
+                            :message="confirmationForm.errors.code"
+                            class="mt-2" />
                     </div>
                 </div>
 
@@ -70,7 +89,9 @@
                     </div>
 
                     <div class="mt-4 grid max-w-xl gap-1 rounded-lg bg-gray-100 px-4 py-4 font-mono text-sm">
-                        <div v-for="code in recoveryCodes" :key="code">
+                        <div
+                            v-for="code in recoveryCodes"
+                            :key="code">
                             {{ code }}
                         </div>
                     </div>
@@ -80,7 +101,10 @@
             <div class="mt-5">
                 <div v-if="!twoFactorEnabled">
                     <JetConfirmsPassword @confirmed="enableTwoFactorAuthentication">
-                        <JetButton type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
+                        <JetButton
+                            type="button"
+                            :class="{ 'opacity-25': enabling }"
+                            :disabled="enabling">
                             Enable
                         </JetButton>
                     </JetConfirmsPassword>
@@ -93,20 +117,23 @@
                             type="button"
                             class="mr-3"
                             :class="{ 'opacity-25': enabling }"
-                            :disabled="enabling"
-                        >
+                            :disabled="enabling">
                             Confirm
                         </JetButton>
                     </JetConfirmsPassword>
 
                     <JetConfirmsPassword @confirmed="regenerateRecoveryCodes">
-                        <JetSecondaryButton v-if="recoveryCodes.length > 0 && !confirming" class="mr-3">
+                        <JetSecondaryButton
+                            v-if="recoveryCodes.length > 0 && !confirming"
+                            class="mr-3">
                             Regenerate Recovery Codes
                         </JetSecondaryButton>
                     </JetConfirmsPassword>
 
                     <JetConfirmsPassword @confirmed="showRecoveryCodes">
-                        <JetSecondaryButton v-if="recoveryCodes.length === 0 && !confirming" class="mr-3">
+                        <JetSecondaryButton
+                            v-if="recoveryCodes.length === 0 && !confirming"
+                            class="mr-3">
                             Show Recovery Codes
                         </JetSecondaryButton>
                     </JetConfirmsPassword>
@@ -115,14 +142,16 @@
                         <JetSecondaryButton
                             v-if="confirming"
                             :class="{ 'opacity-25': disabling }"
-                            :disabled="disabling"
-                        >
+                            :disabled="disabling">
                             Cancel
                         </JetSecondaryButton>
                     </JetConfirmsPassword>
 
                     <JetConfirmsPassword @confirmed="disableTwoFactorAuthentication">
-                        <JetDangerButton v-if="!confirming" :class="{ 'opacity-25': disabling }" :disabled="disabling">
+                        <JetDangerButton
+                            v-if="!confirming"
+                            :class="{ 'opacity-25': disabling }"
+                            :disabled="disabling">
                             Disable
                         </JetDangerButton>
                     </JetConfirmsPassword>

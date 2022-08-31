@@ -15,7 +15,9 @@
             </div>
 
             <!-- Delete Account Confirmation Modal -->
-            <JetDialogModal :show="confirmingUserDeletion" @close="closeModal">
+            <JetDialogModal
+                :show="confirmingUserDeletion"
+                @close="closeModal">
                 <template #title> Delete Account </template>
 
                 <template #content>
@@ -30,10 +32,11 @@
                             type="password"
                             class="mt-1 block w-3/4"
                             placeholder="Password"
-                            @keyup.enter="deleteUser"
-                        />
+                            @keyup.enter="deleteUser" />
 
-                        <JetInputError :message="form.errors.password" class="mt-2" />
+                        <JetInputError
+                            :message="form.errors.password"
+                            class="mt-2" />
                     </div>
                 </template>
 
@@ -44,8 +47,7 @@
                         class="ml-3"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
-                        @click="deleteUser"
-                    >
+                        @click="deleteUser">
                         Delete Account
                     </JetDangerButton>
                 </template>

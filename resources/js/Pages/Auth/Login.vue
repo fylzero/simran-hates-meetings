@@ -9,38 +9,44 @@
         <jet-authentication-card>
             <jet-validation-errors class="mb-4" />
 
-            <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
+            <div
+                v-if="status"
+                class="mb-4 text-sm font-medium text-green-600">
                 {{ status }}
             </div>
 
             <form @submit.prevent="submit">
                 <div>
-                    <jet-label for="email" value="Email" />
+                    <jet-label
+                        for="email"
+                        value="Email" />
                     <jet-input
                         id="email"
                         type="email"
                         class="mt-1 block w-full"
                         v-model="form.email"
                         required
-                        autofocus
-                    />
+                        autofocus />
                 </div>
 
                 <div class="mt-4">
-                    <jet-label for="password" value="Password" />
+                    <jet-label
+                        for="password"
+                        value="Password" />
                     <jet-input
                         id="password"
                         type="password"
                         class="mt-1 block w-full"
                         v-model="form.password"
                         required
-                        autocomplete="current-password"
-                    />
+                        autocomplete="current-password" />
                 </div>
 
                 <div class="mt-4 block">
                     <label class="flex items-center">
-                        <jet-checkbox name="remember" v-model:checked="form.remember" />
+                        <jet-checkbox
+                            name="remember"
+                            v-model:checked="form.remember" />
                         <span class="ml-2 text-sm text-gray-600">Remember me</span>
                     </label>
                 </div>
@@ -49,8 +55,7 @@
                     <Link
                         v-if="canResetPassword"
                         :href="route('password.request')"
-                        class="text-sm text-gray-600 underline hover:text-gray-900"
-                    >
+                        class="text-sm text-gray-600 underline hover:text-gray-900">
                         Forgot your password?
                     </Link>
 
@@ -58,8 +63,7 @@
                         id="login"
                         class="ml-4"
                         :class="{ 'opacity-25': form.processing }"
-                        :disabled="form.processing"
-                    >
+                        :disabled="form.processing">
                         Log in
                     </jet-button>
                 </div>

@@ -15,7 +15,9 @@
 
             <form @submit.prevent="submit">
                 <div>
-                    <jet-label for="password" value="Password" />
+                    <jet-label
+                        for="password"
+                        value="Password" />
                     <jet-input
                         id="password"
                         type="password"
@@ -23,12 +25,14 @@
                         v-model="form.password"
                         required
                         autocomplete="current-password"
-                        autofocus
-                    />
+                        autofocus />
                 </div>
 
                 <div class="mt-4 flex justify-end">
-                    <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <jet-button
+                        class="ml-4"
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing">
                         Confirm
                     </jet-button>
                 </div>
