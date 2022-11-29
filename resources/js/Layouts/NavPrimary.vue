@@ -43,12 +43,29 @@
                 </div>
 
                 <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a
+                        v-if="$page.props.impersonated_by"
+                        :href="'impersonate/stop'"
+                        v-tooltip.bottom="'Stop Impersonating User'"
+                        class="mr-3">
+                        <i class="fas fa-times-circle text-red-700"></i>
+                    </a>
+                    <Link
+                        v-if="
+                            $page.props.app_is_local ||
+                            ($page.props.user && ($page.props.user.email = $page.props.allowed_horizon_email))
+                        "
+                        :href="route('impersonate')"
+                        v-tooltip.bottom="'Impersonate User'"
+                        class="mr-3">
+                        <i class="fas fa-crown text-green-700"></i>
+                    </Link>
                     <template v-if="$page.props.user">
                         <a
                             href="https://github.com/fylzero/simran-hates-meetings/issues/new"
                             v-tooltip.bottom="'Report Problem/Request Feature'"
                             target="blank"
-                            class="mr-2">
+                            class="mr-3">
                             <i class="fas fa-bug text-purple-700"></i>
                         </a>
 

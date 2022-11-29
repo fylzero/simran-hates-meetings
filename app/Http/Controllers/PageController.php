@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MissedMeeting;
+use App\Models\User;
 use Inertia\Inertia;
+use App\Models\MissedMeeting;
 
 class PageController extends Controller
 {
@@ -26,6 +27,13 @@ class PageController extends Controller
     {
         return Inertia::render('ShameLog', [
             'missedMeetings' => MissedMeeting::latest()->with('user')->get(),
+        ]);
+    }
+
+    public function impersonate()
+    {
+        return Inertia::render('Impersonate', [
+            'users' => User::all(),
         ]);
     }
 }

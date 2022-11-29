@@ -40,7 +40,9 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            'impersonated_by' => session('impersonated_by'),
+            'app_is_local' => app()->isLocal(),
+            'allowed_horizon_email' => config('horizon.allowed_user_email'),
         ]);
     }
 }
