@@ -53,7 +53,7 @@
                     <Link
                         v-if="
                             $page.props.app_is_local ||
-                            ($page.props.user && ($page.props.user.email = $page.props.allowed_horizon_email))
+                            ($page.props.user && $page.props.user.email == $page.props.allowed_horizon_email)
                         "
                         :href="route('impersonate')"
                         v-tooltip.bottom="'Impersonate User'"
