@@ -1,13 +1,18 @@
 <template>
     <app-layout title="Impersonate">
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">Impersonate</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Impersonate User</h2>
         </template>
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <!-- Table -->
-                <div class="flex flex-col">
+                <div
+                    class="flex flex-col"
+                    v-if="
+                        $page.props.app_is_local ||
+                        ($page.props.user && $page.props.user.email == $page.props.allowed_horizon_email)
+                    ">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                             <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
