@@ -9,7 +9,7 @@
 
 ~Pretend Quan
 
-<x-mail::button :url="'https://www.simranhatesmeetings.com/shame-log'" :color="'success'">
+<x-mail::button :url="url('shame-log')" :color="'success'">
 Visit the Shame Log
 </x-mail::button>
 
