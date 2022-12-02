@@ -9,7 +9,7 @@ use Tests\TestCase;
 class {{ class }} extends TestCase
 {
     /** @test */
-    public function example(): void
+    public function can_visit_page()
     {
         $response = $this->get('/');
 

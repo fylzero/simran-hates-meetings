@@ -2,34 +2,34 @@
 
 namespace {{ namespace }};
 
+use Inertia\Inertia;
 use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class {{ class }} extends Controller
 {
-    public function index(): Response
+    public function index()
     {
-        //
+        return Inertia::render('Model/Index', []);
     }
 
-    public function store(Request $request): Response
+    public function store(Request $request)
     {
-        //
+        return response()->json();
     }
 
-    public function show($id): Response
+    public function show($id)
     {
-        //
+        return Inertia::render('Model/Show', []);
     }
 
-    public function update(Request $request, $id): Response
+    public function update(Request $request, $id)
     {
-        //
+        return response()->json();
     }
 
-    public function destroy($id): Response
+    public function destroy($id)
     {
-        //
+        return response()->json();
     }
 }

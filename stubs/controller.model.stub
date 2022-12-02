@@ -2,45 +2,45 @@
 
 namespace {{ namespace }};
 
+use Inertia\Inertia;
 use {{ namespacedModel }};
 use {{ rootNamespace }}Http\Controllers\Controller;
 use {{ namespacedRequests }}
-use Illuminate\Http\Response;
 
 class {{ class }} extends Controller
 {
-    public function index(): Response
+    public function index()
     {
-        //
+        return Inertia::render('{{ model }}/Index', []);
     }
 
-    public function create(): Response
+    public function create()
     {
-        //
+        return Inertia::render('{{ model }}/Create', []);
     }
 
-    public function store({{ storeRequest }} $request): Response
+    public function store({{ storeRequest }} $request)
     {
-        //
+        return response()->json();
     }
 
-    public function show({{ model }} ${{ modelVariable }}): Response
+    public function show({{ model }} ${{ modelVariable }})
     {
-        //
+        return Inertia::render('{{ model }}/Show', []);
     }
 
-    public function edit({{ model }} ${{ modelVariable }}): Response
+    public function edit({{ model }} ${{ modelVariable }})
     {
-        //
+        return Inertia::render('{{ model }}/Edit', []);
     }
 
-    public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }}): Response
+    public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
     {
-        //
+        return response()->json();
     }
 
-    public function destroy({{ model }} ${{ modelVariable }}): Response
+    public function destroy({{ model }} ${{ modelVariable }})
     {
-        //
+        return response()->json();
     }
 }

@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class {{ class }} extends TestCase
 {
     /** @test */
-    public function example(): void
+    public function true_is_true()
     {
         $this->assertTrue(true);
     }
