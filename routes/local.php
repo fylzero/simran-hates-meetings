@@ -2,18 +2,17 @@
 
 use App\Mail\MissedMeetingMail;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('impersonate/{user}', function (User $user) {
-    Auth::login($user);
+    auth()->login($user);
 
     return redirect('/');
 });
 
 Route::get('mail', function () {
-    return new App\Mail\MissedMeetingMail();
+    return new MissedMeetingMail;
 });
 
 Route::get('send', function () {

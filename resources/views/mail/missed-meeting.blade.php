@@ -1,5 +1,5 @@
-@component('mail::message')
-# Hi Simran, it's {{ auth()->user()->name }}.
+<x-mail::message>
+# Hi Simran, it's {{ auth()->check() ? auth()->user()->name : 'me' }}.
 
 ## Looks like you bailed on, yet another, meeting!  Here is your punishment quote from Quan...
 
@@ -9,9 +9,9 @@
 
 ~Pretend Quan
 
-@component('mail::button', ['url' => 'https://www.simranhatesmeetings.com/shame-log', 'color' => 'success'])
+<x-mail::button :url="'https://www.simranhatesmeetings.com/shame-log'" :color="'success'">
 Visit the Shame Log
-@endcomponent
+</x-mail::button>
 
 Please stop cancelling meetings, Simran
-@endcomponent
+</x-mail::message>
