@@ -163,8 +163,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-import { Inertia } from '@inertiajs/inertia'
-import { useForm, usePage } from '@inertiajs/inertia-vue3'
+import { useForm, usePage, router } from '@inertiajs/vue3'
 import JetActionSection from '@/Jetstream/ActionSection.vue'
 import JetButton from '@/Jetstream/Button.vue'
 import JetConfirmsPassword from '@/Jetstream/ConfirmsPassword.vue'
@@ -189,7 +188,7 @@ const confirmationForm = useForm({
     code: '',
 })
 
-const twoFactorEnabled = computed(() => !enabling.value && usePage().props.value.user?.two_factor_enabled)
+const twoFactorEnabled = computed(() => !enabling.value && usePage().props.user?.two_factor_enabled)
 
 watch(twoFactorEnabled, () => {
     if (!twoFactorEnabled.value) {
@@ -201,7 +200,7 @@ watch(twoFactorEnabled, () => {
 const enableTwoFactorAuthentication = () => {
     enabling.value = true
 
-    Inertia.post(
+    router.post(
         '/user/two-factor-authentication',
         {},
         {
@@ -253,7 +252,7 @@ const regenerateRecoveryCodes = () => {
 const disableTwoFactorAuthentication = () => {
     disabling.value = true
 
-    Inertia.delete('/user/two-factor-authentication', {
+    router.delete('/user/two-factor-authentication', {
         preserveScroll: true,
         onSuccess: () => {
             disabling.value = false

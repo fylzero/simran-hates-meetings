@@ -27,7 +27,7 @@
 import { defineComponent } from 'vue'
 import NavPrimary from '@/Layouts/NavPrimary.vue'
 import JetBanner from '@/Jetstream/Banner.vue'
-import { Head } from '@inertiajs/inertia-vue3'
+import { Head } from '@inertiajs/vue3'
 
 export default defineComponent({
     props: {
