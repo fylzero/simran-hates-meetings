@@ -8,34 +8,33 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1",
         "aws/aws-sdk-php": "^3.229",
         "doctrine/dbal": "^3.5",
         "enlightn/enlightn": "^2.1",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "^10.0",
         "laravel/horizon": "^5.9",
         "laravel/jetstream": "^2.13",
-        "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7",
+        "laravel/sanctum": "^3.2",
+        "laravel/tinker": "^2.8",
         "smartlaravel/commands": "^1.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
-        "brianium/paratest": "^6.7",
+        "brianium/paratest": "^6.9.1",
         "fakerphp/faker": "^1.9.1",
         "laracasts/cypress": "^3.0",
         "laravel/pint": "^1.2",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
+        "nunomaduro/collision": "^6.4",
         "nunomaduro/larastan": "^2.0",
         "pestphp/pest": "^1.22",
-        "pestphp/pest-plugin-laravel": "^1.3",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "pestphp/pest-plugin-laravel": "^1.2",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -74,9 +73,10 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

@@ -14,10 +14,12 @@ class PasswordResetTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function reset_password_link_screen_can_be_rendered()
+    public function reset_password_link_screen_can_be_rendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('API support is not enabled.');
+
+            return;
         }
 
         $response = $this->get('/forgot-password');
@@ -26,10 +28,12 @@ class PasswordResetTest extends TestCase
     }
 
     /** @test */
-    public function reset_password_link_can_be_requested()
+    public function reset_password_link_can_be_requested(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
+
+            return;
         }
 
         Notification::fake();
@@ -44,10 +48,12 @@ class PasswordResetTest extends TestCase
     }
 
     /** @test */
-    public function reset_password_screen_can_be_rendered()
+    public function reset_password_screen_can_be_rendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
+
+            return;
         }
 
         Notification::fake();
@@ -68,10 +74,12 @@ class PasswordResetTest extends TestCase
     }
 
     /** @test */
-    public function password_can_be_reset_with_valid_token()
+    public function password_can_be_reset_with_valid_token(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
-            return $this->markTestSkipped('Password updates are not enabled.');
+            $this->markTestSkipped('Password updates are not enabled.');
+
+            return;
         }
 
         Notification::fake();
