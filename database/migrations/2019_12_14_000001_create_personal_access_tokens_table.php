@@ -23,4 +23,4 @@ return new class extends Migration
     {
         // Best to avoid down migrations
     }
-}
+};
