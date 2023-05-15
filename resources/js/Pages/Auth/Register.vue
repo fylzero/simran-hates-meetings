@@ -67,9 +67,13 @@
                     <jet-label
                         for="timezone"
                         value="Timezone" />
-                    <time-zone-select
-                        @tz="selectTz"
-                        id="timezone"></time-zone-select>
+
+                    <!-- Timezone -->
+                    <input
+                        type="text"
+                        :value="form.timezone"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-100"
+                        disabled />
                 </div>
 
                 <div
@@ -122,6 +126,7 @@
 </template>
 
 <script>
+import { DateTime } from 'luxon'
 import { defineComponent } from 'vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
@@ -131,7 +136,6 @@ import JetInput from '@/Jetstream/Input.vue'
 import JetCheckbox from '@/Jetstream/Checkbox.vue'
 import JetLabel from '@/Jetstream/Label.vue'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-import TimeZoneSelect from '@/Components/TimeZoneSelect.vue'
 import { Head, Link } from '@inertiajs/vue3'
 
 export default defineComponent({
@@ -145,7 +149,6 @@ export default defineComponent({
         JetCheckbox,
         JetLabel,
         JetValidationErrors,
-        TimeZoneSelect,
         Link,
     },
 
@@ -156,16 +159,13 @@ export default defineComponent({
                 email: '',
                 password: '',
                 password_confirmation: '',
-                timezone: '',
+                timezone: DateTime.local().zoneName,
                 terms: false,
             }),
         }
     },
 
     methods: {
-        selectTz(e) {
-            this.form.timezone = e
-        },
         submit() {
             this.form.post(this.route('register'), {
                 onFinish: () => this.form.reset('password', 'password_confirmation'),

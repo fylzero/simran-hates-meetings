@@ -40,7 +40,7 @@
                 </div>
 
                 <JetSecondaryButton
-                    class="mt-2 mr-2"
+                    class="mr-2 mt-2"
                     type="button"
                     @click.prevent="selectNewPhoto">
                     Select A New Photo
@@ -116,10 +116,14 @@
                 <JetLabel
                     for="timezone"
                     value="Timezone" />
-                <TimeZoneSelect
-                    :currentTz="user.timezone"
-                    @tz="selectTz"
-                    id="timezone" />
+
+                <!-- Timezone -->
+                <input
+                    type="text"
+                    :value="user.timezone"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-100"
+                    disabled />
+
                 <JetInputError
                     :message="form.errors.timezone"
                     class="mt-2" />
@@ -152,7 +156,6 @@ import JetInputError from '@/Jetstream/InputError.vue'
 import JetLabel from '@/Jetstream/Label.vue'
 import JetActionMessage from '@/Jetstream/ActionMessage.vue'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
-import TimeZoneSelect from '@/Components/TimeZoneSelect.vue'
 
 const props = defineProps({
     user: Object,
