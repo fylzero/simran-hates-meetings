@@ -17,11 +17,6 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            colors: {
-                green: colors.emerald,
-                yellow: colors.amber,
-                purple: colors.violet,
-            },
         },
     },
 

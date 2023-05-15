@@ -13,15 +13,18 @@
                         alt="Cartoon of kitten Sylvester putting a bag over his head" />
                 </div>
 
-                <ShameTable :missedMeetings="missedMeetings" />
+                <ShameTable :missedMeetings="missedMeetings" :pageProps="pageProps" />
             </div>
         </div>
     </app-layout>
 </template>
 
 <script setup>
+import { usePage } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue'
 import ShameTable from '@/Components/ShameTable.vue'
 
 const props = defineProps(['missedMeetings'])
+
+const pageProps = usePage().props
 </script>

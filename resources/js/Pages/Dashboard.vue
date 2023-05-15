@@ -1,4 +1,5 @@
 <script setup>
+import { usePage } from '@inertiajs/vue3';
 import { ref } from 'vue'
 import { createToast } from 'mosha-vue-toastify'
 import AppLayout from '@/Layouts/AppLayout.vue'
@@ -50,7 +51,7 @@ function logMissedMeeting() {
     <app-layout title="Dashboard">
         <template #header>
             <h2
-                v-if="$page.props.user"
+                v-if="usePage().props.auth.user"
                 class="text-xl font-semibold leading-tight text-gray-800">
                 Dashboard
             </h2>
@@ -131,9 +132,9 @@ function logMissedMeeting() {
 
             <div
                 class="mt-6 text-center"
-                v-if="$page.props.user">
+                v-if="usePage().props.auth.user">
                 <!-- Simran's Reverse-Shame Form -->
-                <div v-if="$page.props.user.is_simran">
+                <div v-if="usePage().props.auth.user.is_simran">
                     <button
                         class="focus:shadow-outline-green mt-3 inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 font-sans text-lg leading-snug tracking-widest text-white transition duration-150 ease-in-out hover:bg-green-700 focus:border-green-900 focus:outline-none active:bg-green-900">
                         (Coming soon)
