@@ -1,3 +1,51 @@
+<script setup>
+import { ref } from 'vue'
+import { createToast } from 'mosha-vue-toastify'
+import AppLayout from '@/Layouts/AppLayout.vue'
+import Card from '@/Components/Card.vue'
+
+const props = defineProps([
+    'missedMeetingsAll',
+    'missedMeetingsToday',
+    'missedMeetingsThisWeek',
+    'missedMeetingsThisMonth',
+    'missedMeetingsDaysSince',
+])
+
+const logButtonLoading = ref(false)
+const missed = ref({
+    all: props.missedMeetingsAll,
+    today: props.missedMeetingsToday,
+    thisWeek: props.missedMeetingsThisWeek,
+    thisMonth: props.missedMeetingsThisMonth,
+    daysSince: props.missedMeetingsDaysSince,
+})
+
+function logMissedMeeting() {
+    logButtonLoading.value = true
+    axios
+        .post('/missed-meeting/')
+        .then((response) => {
+            missed.value.all++
+            missed.value.today++
+            missed.value.thisWeek++
+            missed.value.thisMonth++
+            missed.value.daysSince = 0
+
+            createToast('Simran has been notified!', {
+                position: 'bottom-right',
+                type: 'success',
+            })
+        })
+        .catch((error) => {
+            console.log(error.response)
+        })
+        .finally(() => {
+            logButtonLoading.value = false
+        })
+}
+</script>
+
 <template>
     <app-layout title="Dashboard">
         <template #header>
@@ -137,54 +185,6 @@
         </div>
     </app-layout>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import { createToast } from 'mosha-vue-toastify'
-import AppLayout from '@/Layouts/AppLayout.vue'
-import Card from '@/Components/Card.vue'
-
-const props = defineProps([
-    'missedMeetingsAll',
-    'missedMeetingsToday',
-    'missedMeetingsThisWeek',
-    'missedMeetingsThisMonth',
-    'missedMeetingsDaysSince',
-])
-
-const logButtonLoading = ref(false)
-const missed = ref({
-    all: props.missedMeetingsAll,
-    today: props.missedMeetingsToday,
-    thisWeek: props.missedMeetingsThisWeek,
-    thisMonth: props.missedMeetingsThisMonth,
-    daysSince: props.missedMeetingsDaysSince,
-})
-
-function logMissedMeeting() {
-    logButtonLoading.value = true
-    axios
-        .post('/missed-meeting/')
-        .then((response) => {
-            missed.value.all++
-            missed.value.today++
-            missed.value.thisWeek++
-            missed.value.thisMonth++
-            missed.value.daysSince = 0
-
-            createToast('Simran has been notified!', {
-                position: 'bottom-right',
-                type: 'success',
-            })
-        })
-        .catch((error) => {
-            console.log(error.response)
-        })
-        .finally(() => {
-            logButtonLoading.value = false
-        })
-}
-</script>
 
 <style scoped>
 .box {
