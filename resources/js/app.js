@@ -3,7 +3,6 @@ window._ = _
 
 import axios from 'axios'
 window.axios = axios
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 import '../css/app.css'
@@ -12,6 +11,8 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
+
+// Floating Vue
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 

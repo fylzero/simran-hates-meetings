@@ -1,9 +1,6 @@
-import { defineConfig } from 'vite'
-import laravel from 'laravel-vite-plugin'
-import vue from '@vitejs/plugin-vue'
-
-const domain = 'simran-hates-meetings.test'
-const homedir = require('os').homedir()
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
     plugins: [
@@ -20,14 +17,4 @@ export default defineConfig({
             },
         }),
     ],
-    server: {
-        https: {
-            key: `${homedir}/.config/valet/Certificates/${domain}.key`,
-            cert: `${homedir}/.config/valet/Certificates/${domain}.crt`,
-        },
-        host: domain,
-        hmr: {
-            host: domain,
-        },
-    },
-})
+});
