@@ -37,6 +37,7 @@ class User extends Authenticatable
 
     protected $appends = [
         'profile_photo_url',
+        'is_admin',
         'is_simran',
     ];
 
@@ -47,6 +48,13 @@ class User extends Authenticatable
     }
 
     /** Attributes */
+    public function getIsAdminAttribute()
+    {
+        return auth()->check() ? in_array(auth()->user()->email, [
+            config('horizon.allowed_user_email'),
+        ]) : false;
+    }
+
     public function getIsSimranAttribute()
     {
         return $this->id == 1;

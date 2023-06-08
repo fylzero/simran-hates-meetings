@@ -1,27 +1,31 @@
 <script setup>
-import { ref } from 'vue';
-import { Link, Head, router, usePage } from '@inertiajs/vue3';
-import Banner from '@/Components/Banner.vue';
+import { ref } from 'vue'
+import { Link, Head, router, usePage } from '@inertiajs/vue3'
+import Banner from '@/Components/Banner.vue'
 import JetNavLink from '@/Jetstream/NavLink.vue'
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
 
 defineProps({
     title: String,
-});
+})
 
 const showingNavigationDropdown = ref(false)
 
 const switchToTeam = (team) => {
-    router.put(route('current-team.update'), {
-        team_id: team.id,
-    }, {
-        preserveState: false,
-    });
-};
+    router.put(
+        route('current-team.update'),
+        {
+            team_id: team.id,
+        },
+        {
+            preserveState: false,
+        },
+    )
+}
 
 const logout = () => {
-    router.post(route('logout'));
-};
+    router.post(route('logout'))
+}
 </script>
 
 <template>
@@ -75,30 +79,44 @@ const logout = () => {
                             </div>
                         </div>
 
-                        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                        <div class="hidden gap-3 sm:ml-6 sm:flex sm:items-center">
+                            <!-- Horizon -->
+                            <a
+                                href="/horizon"
+                                target="blank"
+                                v-if="usePage().props.auth.user.is_admin"
+                                v-tooltip.bottom="'Laravel Horizon (Redis Queue)'">
+                                <svg
+                                    class="h-4 w-4 text-purple-600 transition-colors duration-200 hover:text-purple-800"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 30 30">
+                                    <path
+                                        d="M5.26176342 26.4094389C2.04147988 23.6582233 0 19.5675182 0 15c0-4.1421356 1.67893219-7.89213562 4.39339828-10.60660172C7.10786438 1.67893219 10.8578644 0 15 0c8.2842712 0 15 6.71572875 15 15 0 8.2842712-6.7157288 15-15 15-3.716753 0-7.11777662-1.3517984-9.73823658-3.5905611zM4.03811305 15.9222506C5.70084247 14.4569342 6.87195416 12.5 10 12.5c5 0 5 5 10 5 3.1280454 0 4.2991572-1.9569336 5.961887-3.4222502C25.4934253 8.43417206 20.7645408 4 15 4 8.92486775 4 4 8.92486775 4 15c0 .3105915.01287248.6181765.03811305.9222506z"
+                                        class="fill-current"></path>
+                                </svg>
+                            </a>
+
                             <a
                                 v-if="usePage().props.impersonated_by"
                                 :href="'impersonate/stop'"
-                                v-tooltip.bottom="'Stop Impersonating User'"
-                                class="mr-3">
+                                v-tooltip.bottom="'Stop Impersonating User'">
                                 <i class="fas fa-times-circle text-red-700"></i>
                             </a>
                             <Link
                                 v-if="
                                     usePage().props.app_is_local ||
-                                    (usePage().props.auth.user && usePage().props.auth.user.email == usePage().props.allowed_horizon_email)
+                                    (usePage().props.auth.user &&
+                                        usePage().props.auth.user.email == usePage().props.allowed_horizon_email)
                                 "
                                 :href="route('impersonate')"
-                                v-tooltip.bottom="'Impersonate User'"
-                                class="mr-3">
+                                v-tooltip.bottom="'Impersonate User'">
                                 <i class="fas fa-crown text-green-700"></i>
                             </Link>
                             <template v-if="usePage().props.auth.user">
                                 <a
                                     href="https://github.com/fylzero/simran-hates-meetings/issues/new"
                                     v-tooltip.bottom="'Report Problem/Request Feature'"
-                                    target="blank"
-                                    class="mr-3">
+                                    target="blank">
                                     <i class="fas fa-bug text-purple-700"></i>
                                 </a>
 
@@ -179,7 +197,7 @@ const logout = () => {
                         hidden: !showingNavigationDropdown,
                     }"
                     class="sm:hidden">
-                    <div class="space-y-1 pt-2 pb-3">
+                    <div class="space-y-1 pb-3 pt-2">
                         <JetResponsiveNavLink
                             :href="route('dashboard')"
                             :active="route().current('dashboard')">
@@ -207,7 +225,7 @@ const logout = () => {
 
                     <!-- Responsive Settings Options -->
                     <div
-                        class="border-t border-gray-200 pt-4 pb-1"
+                        class="border-t border-gray-200 pb-1 pt-4"
                         v-if="usePage().props.auth.user">
                         <div class="flex items-center px-4">
                             <div
@@ -251,7 +269,7 @@ const logout = () => {
 
             <!-- Page Heading -->
             <header class="bg-gradient-to-r from-gray-100 to-indigo-200 shadow">
-                <div class="mx-auto max-w-7xl py-3 px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
                     <slot name="header"></slot>
                 </div>
             </header>
