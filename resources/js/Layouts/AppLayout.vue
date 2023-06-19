@@ -84,7 +84,7 @@ const logout = () => {
                             <a
                                 href="/horizon"
                                 target="blank"
-                                v-if="usePage().props.auth.user.is_admin"
+                                v-if="usePage().props.auth.user && usePage().props.auth.user.is_admin"
                                 v-tooltip.bottom="'Laravel Horizon (Redis Queue)'">
                                 <svg
                                     class="h-4 w-4 text-purple-600 transition-colors duration-200 hover:text-purple-800"
