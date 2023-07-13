@@ -1,5 +1,5 @@
 <script setup>
-import { usePage } from '@inertiajs/vue3';
+import { usePage } from '@inertiajs/vue3'
 import { ref } from 'vue'
 import { createToast } from 'mosha-vue-toastify'
 import AppLayout from '@/Layouts/AppLayout.vue'
@@ -94,7 +94,7 @@ function logMissedMeeting() {
                             alt="Nicholas Cage face" />
                     </div>
                 </div>
-                <div class="flex pt-6 pb-3">
+                <div class="flex pb-3 pt-6">
                     <div class="flex-grow text-center">
                         Total
                         <h1
